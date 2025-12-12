@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Ton Forklift - LT-10 | SCA Heavy Equipment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fafafa;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600') center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            width: 100%;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        .breadcrumb span {
+            margin: 0 0.5rem;
+        }
+
+        .product-title-wrapper {
+            max-width: 700px;
+        }
+
+        .title-accent {
+            width: 60px;
+            height: 5px;
+            background: #0057A3;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-title h1 {
+            font-size: 3.5rem;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .hero-btn-primary {
+            background: #0057A3;
+            color: white;
+            border-color: #0057A3;
+        }
+
+        .hero-btn-primary:hover {
+            background: #003d73;
+            border-color: #003d73;
+            transform: translateY(-2px);
+        }
+
+        .hero-btn-outline {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .hero-btn-outline:hover {
+            background: white;
+            color: #0057A3;
+            transform: translateY(-2px);
+        }
+
+        /* Image Gallery */
+        .gallery-section {
+            padding: 5rem 5%;
+            background: white;
+            margin-top: 2rem;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #f5f5f5;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 87, 163, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Feature Cards */
+        .features-section {
+            padding: 5rem 5%;
+            background: #fafafa;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 87, 163, 0.15);
+        }
+
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #0057A3, #003d73);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 87, 163, 0.3);
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #0057A3;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Tabs Section */
+        .tabs-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-nav {
+            display: flex;
+            background: #f5f5f5;
+            border-radius: 10px 10px 0 0;
+            overflow: hidden;
+            border-bottom: 3px solid #e0e0e0;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            background: transparent;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab-button:hover {
+            background: #e8e8e8;
+            color: #0057A3;
+        }
+
+        .tab-button.active {
+            background: white;
+            color: #0057A3;
+        }
+
+        .tab-button.active:after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #0057A3;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            background: white;
+            border-radius: 0 0 10px 10px;
+            animation: fadeIn 0.4s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tab-content h3 {
+            font-size: 1.8rem;
+            color: #0057A3;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-content p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .spec-table {
+            width: 100%;
+            margin-top: 2rem;
+            border-collapse: collapse;
+        }
+
+        .spec-table tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .spec-table td {
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        .spec-table td:first-child {
+            font-weight: 600;
+            color: #0057A3;
+            width: 40%;
+        }
+
+        .spec-table td:last-child {
+            color: #555;
+        }
+
+        .dimension-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            display: block;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            padding: 4rem 5%;
+            background: #fafafa;
+        }
+
+        .buttons-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #0057A3;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #003d73;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 87, 163, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #0057A3;
+            border: 2px solid #0057A3;
+        }
+
+        .btn-outline:hover {
+            background: #0057A3;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 87, 163, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-section {
+                height: 60vh;
+                min-height: 450px;
+            }
+
+            .product-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .product-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tab-nav {
+                overflow-x: auto;
+                border-radius: 10px;
+            }
+
+            .tab-button {
+                white-space: nowrap;
+                min-width: 150px;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 350px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-section {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .product-title h1 {
+                font-size: 2rem;
+            }
+
+            .product-subtitle {
+                font-size: 1rem;
+            }
+
+            .title-accent {
+                width: 40px;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="product-title-wrapper">
+                <div class="title-accent"></div>
+                <div class="product-title">
+                    <h1>10 Ton Forklift – LT-10</h1>
+                    <p class="product-subtitle">Heavy-duty steel leverage into shareables and thinking at a high level. We really need to agglomerate stakeholders to deliver a better outcome.</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#specifications" class="hero-btn hero-btn-primary">
+                        <i class="fas fa-list"></i>
+                        EXPLORE
+                    </a>
+                    <a href="/quote" class="hero-btn hero-btn-outline">
+                        <i class="fas fa-file-alt"></i>
+                        GET A QUOTE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <div class="image-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" alt="Forklift Front View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565611273108-c0c9178b5d27?w=800" alt="Forklift Side View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1619468129361-605ebea04b44?w=800" alt="Forklift in Action">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800" alt="Forklift Detail">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800" alt="Forklift Cabin">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=800" alt="Forklift Operation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Strength and Stability</h3>
+                    <p>Engineered with robust construction and advanced stability systems to handle heavy loads with maximum safety and reliability in demanding industrial environments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Ease & Safety in Operations</h3>
+                    <p>Intuitive controls, ergonomic design, and comprehensive safety features ensure smooth operation while protecting both operators and cargo during material handling tasks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Superior Performance</h3>
+                    <p>High-performance engine, efficient hydraulics, and precision engineering deliver exceptional lifting capacity, speed, and productivity for your operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="tabs-section">
+        <div class="tabs-container">
+            <div class="tab-nav">
+                <button class="tab-button active" onclick="openTab(event, 'overview')">Overview</button>
+                <button class="tab-button" onclick="openTab(event, 'specifications')">Specifications</button>
+                <button class="tab-button" onclick="openTab(event, 'dimension')">Dimension</button>
+                <button class="tab-button" onclick="openTab(event, 'design')">Design</button>
+            </div>
+
+            <div id="overview" class="tab-content active">
+                <h3>Product Overview</h3>
+                <p>The SCA LT-10 is a heavy-duty 10-ton forklift designed for demanding industrial applications. Built with superior engineering and premium materials, this forklift delivers exceptional performance, reliability, and safety in material handling operations.</p>
+                <p>Equipped with advanced hydraulic systems and a powerful engine, the LT-10 ensures smooth operation even under maximum load conditions. The ergonomic operator cabin provides comfort during extended shifts, while comprehensive safety features protect both the operator and your valuable cargo.</p>
+                <p>Whether you're working in warehouses, manufacturing facilities, ports, or construction sites, the LT-10 provides the strength, stability, and precision you need to maximize productivity and operational efficiency.</p>
+            </div>
+
+            <div id="specifications" class="tab-content">
+                <h3>Technical Specifications</h3>
+                <table class="spec-table">
+                    <tr>
+                        <td>Load Capacity</td>
+                        <td>10,000 kg (10 tons)</td>
+                    </tr>
+                    <tr>
+                        <td>Load Center</td>
+                        <td>600 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Max Lift Height</td>
+                        <td>4500 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Engine Type</td>
+                        <td>Diesel / Electric Option Available</td>
+                    </tr>
+                    <tr>
+                        <td>Engine Power</td>
+                        <td>95 kW (130 HP)</td>
+                    </tr>
+                    <tr>
+                        <td>Turning Radius</td>
+                        <td>3800 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Travel Speed (Loaded)</td>
+                        <td>18 km/h</td>
+                    </tr>
+                    <tr>
+                        <td>Travel Speed (Unloaded)</td>
+                        <td>22 km/h</td>
+                    </tr>
+                    <tr>
+                        <td>Gradeability</td>
+                        <td>20% (Loaded) / 30% (Unloaded)</td>
+                    </tr>
+                    <tr>
+                        <td>Tire Type</td>
+                        <td>Pneumatic / Solid Options</td>
+                    </tr>
+                    <tr>
+                        <td>Mast Type</td>
+                        <td>Duplex / Triplex Standard</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Weight</td>
+                        <td>16,500 kg</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="dimension" class="tab-content">
+                <h3>Dimensions</h3>
+                <table class="spec-table">
+                    <tr>
+                        <td>Overall Length</td>
+                        <td>5200 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Overall Width</td>
+                        <td>2200 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Overall Height (Mast Lowered)</td>
+                        <td>2800 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Overall Height (Mast Extended)</td>
+                        <td>4500 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Wheelbase</td>
+                        <td>2800 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Fork Length</td>
+                        <td>1220 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Fork Width</td>
+                        <td>150 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Fork Carriage Width</td>
+                        <td>1800 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Ground Clearance</td>
+                        <td>180 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Cabin Height</td>
+                        <td>2200 mm</td>
+                    </tr>
+                </table>
+                <p style="margin-top: 2rem; color: #666; font-style: italic;">
+                    <i class="fas fa-info-circle" style="color: #0057A3;"></i> 
+                    Detailed dimension drawings available in the downloadable brochure.
+                </p>
+            </div>
+
+            <div id="design" class="tab-content">
+                <h3>Design Features</h3>
+                <p><strong style="color: #0057A3;">Robust Frame Construction:</strong> Heavy-duty steel frame engineered to withstand extreme loads and harsh operating conditions while maintaining structural integrity over years of intensive use.</p>
+                
+                <p><strong style="color: #0057A3;">Advanced Hydraulic System:</strong> Precision-engineered hydraulic system provides smooth lifting and lowering operations with excellent load control and minimal maintenance requirements.</p>
+                
+                <p><strong style="color: #0057A3;">Ergonomic Operator Cabin:</strong> Spacious, climate-controlled cabin with adjustable seating, excellent visibility, intuitive controls, and reduced noise levels for operator comfort during extended shifts.</p>
+                
+                <p><strong style="color: #0057A3;">Safety Systems:</strong> Comprehensive safety features including overhead guard, load backrest, emergency stop systems, safety lights, audible alarms, and stability monitoring.</p>
+                
+                <p><strong style="color: #0057A3;">Efficient Engine:</strong> High-performance diesel or electric engine options delivering optimal power-to-weight ratio with reduced fuel consumption and lower emissions.</p>
+                
+                <p><strong style="color: #0057A3;">Premium Components:</strong> Quality components from trusted global suppliers ensure reliability, longevity, and easy availability of spare parts for minimal downtime.</p>
+                
+                <p><strong style="color: #0057A3;">Versatile Attachments:</strong> Compatible with various fork attachments and accessories including side shifters, rotators, clamps, and specialized forks for diverse material handling requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="action-buttons">
+        <div class="buttons-container">
+            <a href="/brochures/lt-10-forklift.pdf" download class="btn btn-primary">
+                <i class="fas fa-download"></i>
+                Download Brochure
+            </a>
+            <a href="/quote" class="btn btn-outline">
+                <i class="fas fa-file-alt"></i>
+                Request Quote
+            </a>
+        </div>
+    </section>
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+
+            // Remove active class from all buttons
+            const tabButtons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+
+            // Show current tab and mark button as active
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
