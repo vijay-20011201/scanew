@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - SCA Heavy Equipment Pvt Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0057A3 0%, #003D73 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .breadcrumbs {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .breadcrumbs a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumbs a:hover {
+            opacity: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Overview Section */
+        .overview {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .overview-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 87, 163, 0.15);
+        }
+
+        .overview-content {
+            border-left: 4px solid #0057A3;
+            padding-left: 30px;
+        }
+
+        .overview-content h2 {
+            font-size: 36px;
+            color: #0057A3;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .overview-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Service Categories */
+        .services-section {
+            background: #F8FAFB;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            color: #0057A3;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 87, 163, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0057A3, #0071CC);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 87, 163, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            color: #0057A3;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Process Section */
+        .process-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: linear-gradient(to right, #0057A3, #0071CC);
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0057A3, #0071CC);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(0, 87, 163, 0.3);
+            border: 5px solid white;
+        }
+
+        .process-step h4 {
+            font-size: 18px;
+            color: #0057A3;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background: linear-gradient(135deg, #0057A3 0%, #003D73 100%);
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .why-grid {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .why-item {
+            text-align: center;
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .why-item h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .why-item p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #004280 0%, #002D5C 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-banner h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 16px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0057A3;
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #0057A3;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .overview {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .services-grid,
+            .process-steps,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-content {
+                border-left: none;
+                border-top: 4px solid #0057A3;
+                padding-left: 0;
+                padding-top: 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        /* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Our Services</h1>
+        <p>Reliable support for all heavy equipment needs</p>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <div class="overview-image"></div>
+        <div class="overview-content">
+            <h2>Complete Service Solutions</h2>
+            <p>SCA Heavy Equipment Pvt Ltd offers complete service solutions covering installation, maintenance, repairs, spare parts support and annual service contracts.</p>
+            <p>Our expert engineering team ensures long-term performance, safety and reliability of forklifts, reachstackers, empty container handlers and all other heavy-duty equipment.</p>
+        </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="services-section">
+        <h2 class="section-title">Our Service Categories</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Installation & Commissioning</h3>
+                <p>Equipment delivered, assembled and tested by certified engineers.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Preventive Maintenance</h3>
+                <p>Routine checks ensuring equipment safety and performance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚨</div>
+                <h3>Breakdown & Emergency Repairs</h3>
+                <p>Quick technical support with onsite service response.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Spare Parts & Components</h3>
+                <p>Original, high-quality parts for long equipment life.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Annual Maintenance Contracts</h3>
+                <p>Long-term service plans for reliability and reduced downtime.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎓</div>
+                <h3>Operator Training & Safety</h3>
+                <p>Training programs for forklift & reachstacker operation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <h2 class="section-title">How We Work</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Inspection</h4>
+                <p>Thorough equipment assessment</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Diagnosis</h4>
+                <p>Identify issues and solutions</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>Repair & Maintenance</h4>
+                <p>Expert service execution</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Final Testing</h4>
+                <p>Quality assurance & delivery</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <h2 class="section-title" style="color: white;">Why Choose Our Services</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="why-icon">👨‍🔧</div>
+                <h4>Certified Service Engineers</h4>
+                <p>Highly trained professionals with industry expertise</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">⚡</div>
+                <h4>Fast Response Time</h4>
+                <p>Quick support when you need it most</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">✓</div>
+                <h4>Genuine Spare Parts</h4>
+                <p>Only authentic components for durability</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🛡️</div>
+                <h4>High Safety Standards</h4>
+                <p>Compliance with international safety protocols</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">💰</div>
+                <h4>Cost-Effective Plans</h4>
+                <p>Competitive pricing without compromising quality</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">🤝</div>
+                <h4>Best After-Sales Support</h4>
+                <p>Continuous assistance throughout equipment life</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <h2>Need Service for Your Equipment?</h2>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Request Service</a>
+            <a href="#" class="btn btn-outline">Call Support</a>
+        </div>
+    </section>
+    <!-- Floating WhatsApp Button -->
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+</body>
+</html>
