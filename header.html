@@ -202,48 +202,6 @@
             padding-left: 20px;
         }
 
-        /* Regular Dropdown for Services/Contact */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 200px;
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-item {
-            list-style: none;
-        }
-
-        .dropdown-link {
-            color: #333;
-            text-decoration: none;
-            padding: 12px 20px;
-            display: block;
-            transition: all 0.3s ease;
-            font-size: 15px;
-        }
-
-        .dropdown-link:hover {
-            background: #0057A3;
-            color: white;
-            padding-left: 25px;
-        }
-
         /* Hamburger Menu */
         .hamburger {
             display: none;
@@ -311,6 +269,7 @@
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
                 align-items: flex-start;
                 overflow-y: auto;
+                gap: 0;
             }
 
             .nav-menu.active {
@@ -331,6 +290,21 @@
                 display: none;
             }
 
+            /* Mobile dropdown behavior */
+            .dropdown:hover .dropdown-arrow {
+                transform: none;
+            }
+
+            .dropdown.active .dropdown-arrow {
+                transform: rotate(180deg);
+            }
+
+            .dropdown:hover .mega-menu {
+                opacity: 0;
+                visibility: hidden;
+                transform: none;
+            }
+
             .mega-menu {
                 position: static;
                 opacity: 1;
@@ -340,15 +314,15 @@
                 margin-top: 0;
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.5s ease;
+                transition: max-height 0.5s ease, padding 0.3s ease;
                 background: rgba(255, 255, 255, 0.1);
                 min-width: auto;
                 width: 100%;
-                padding: 0;
+                padding: 0 20px;
             }
 
             .dropdown.active .mega-menu {
-                max-height: 800px;
+                max-height: 1000px;
                 padding: 20px;
             }
 
@@ -360,47 +334,19 @@
             .category-title {
                 color: white;
                 border-bottom-color: rgba(255, 255, 255, 0.3);
+                font-size: 15px;
             }
 
             .category-link {
-                color: white;
+                color: rgba(255, 255, 255, 0.9);
                 padding: 10px 15px;
+                font-size: 14px;
             }
 
             .category-link:hover {
                 background: rgba(255, 255, 255, 0.15);
-                padding-left: 25px;
-            }
-
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                margin-top: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                background: rgba(255, 255, 255, 0.1);
-            }
-
-            .dropdown.active .dropdown-menu {
-                max-height: 400px;
-            }
-
-            .dropdown.active .dropdown-arrow {
-                transform: rotate(180deg);
-            }
-
-            .dropdown-link {
                 color: white;
-                padding: 12px 30px 12px 50px;
-            }
-
-            .dropdown-link:hover {
-                background: rgba(255, 255, 255, 0.15);
-                padding-left: 55px;
+                padding-left: 25px;
             }
         }
 
@@ -442,7 +388,7 @@
                     <a href="about.html" class="nav-link">About</a>
                 </li>
                 <li class="nav-item dropdown" id="productsDropdown">
-                    <a href="#products" class="nav-link dropdown-toggle">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle">
                         Products
                         <span class="dropdown-arrow">▼</span>
                     </a>
@@ -452,13 +398,22 @@
                                 <div class="category-title">Forklift</div>
                                 <ul class="category-items">
                                     <li class="category-item">
-                                        <a href="forklift10.html" class="category-link">Forklift - LT-12</a>
+                                        <a href="forklift12.html" class="category-link">Forklift - LT-12</a>
                                     </li>
                                     <li class="category-item">
                                         <a href="forklift16.html" class="category-link">Forklift - LT-16</a>
                                     </li>
                                     <li class="category-item">
+                                        <a href="forklift20.html" class="category-link">Forklift - LT-20</a>
+                                    </li>
+                                    <li class="category-item">
                                         <a href="forklift35.html" class="category-link">Forklift - LT-35</a>
+                                    </li>
+                                    <li class="category-item">
+                                        <a href="forklift40.html" class="category-link">Forklift - LT-40</a>
+                                    </li>
+                                    <li class="category-item">
+                                        <a href="forklift45.html" class="category-link">Forklift - LT-45</a>
                                     </li>
                                     <li class="category-item">
                                         <a href="forklift50.html" class="category-link">Forklift - LT-50</a>
@@ -518,7 +473,8 @@
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
         const navbar = document.getElementById('navbar');
-        const dropdowns = document.querySelectorAll('.dropdown');
+        const productsDropdown = document.getElementById('productsDropdown');
+        const dropdownToggle = productsDropdown.querySelector('.dropdown-toggle');
 
         // Hamburger toggle
         hamburger.addEventListener('click', () => {
@@ -526,29 +482,34 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link (except dropdown toggles)
+        // Close menu when clicking on regular links
         document.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                if (window.innerWidth <= 992) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
             });
         });
 
-        // Mobile dropdown toggle
-        dropdowns.forEach(dropdown => {
-            const toggle = dropdown.querySelector('.dropdown-toggle');
-            toggle.addEventListener('click', (e) => {
+        // Close menu when clicking on category links
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', () => {
                 if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    // Close other dropdowns
-                    dropdowns.forEach(d => {
-                        if (d !== dropdown) {
-                            d.classList.remove('active');
-                        }
-                    });
-                    dropdown.classList.toggle('active');
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    productsDropdown.classList.remove('active');
                 }
             });
+        });
+
+        // Products dropdown toggle for mobile
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                e.stopPropagation();
+                productsDropdown.classList.toggle('active');
+            }
         });
 
         // Sticky navbar shadow on scroll
@@ -560,26 +521,24 @@
             }
         });
 
-        // Active link highlighting
-        const sections = document.querySelectorAll('section, div[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 100) {
-                    current = section.getAttribute('id');
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    productsDropdown.classList.remove('active');
                 }
-            });
+            }
+        });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
+        // Reset menu state on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                productsDropdown.classList.remove('active');
+            }
         });
     </script>
 </body>
