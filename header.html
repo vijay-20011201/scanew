@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCA Navbar - Mega Menu</title>
+    <title>SCA Navigation - Professional Navbar (Fixed)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,48 +14,130 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding-top: 80px;
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
         }
 
-        /* Navbar Styles */
-        .navbar {
-            background: #0057A3;
-            height: 75px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+        /* ============= TOP UTILITY BAR ============= */
+        .top-bar {
+            background: linear-gradient(135deg, #0a1929 0%, #1a2942 100%);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .navbar.scrolled {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .navbar-container {
+        .top-bar-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
-            height: 100%;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Logo Styles */
-        .logo-container {
+        .top-bar-left {
             display: flex;
             align-items: center;
+            gap: 30px;
+        }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #b0bec5;
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .top-bar-item i {
+            color: #2196f3;
+            font-size: 14px;
+        }
+
+        .top-bar-item:hover {
+            color: #ffffff;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #b0bec5;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #2196f3;
+            transform: translateY(-2px);
+        }
+
+        .inquiry-btn {
+            background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+            color: #ffffff;
+            padding: 8px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
+
+        .inquiry-btn:hover {
+            background: linear-gradient(135deg, #2196f3 0%, #42a5f5 100%);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* ============= MAIN NAVIGATION ============= */
+        .navbar {
+            background: linear-gradient(135deg, #0d2137 0%, #1e3a5f 100%);
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .navbar.scrolled {
+            background: linear-gradient(135deg, rgba(13, 33, 55, 0.98) 0%, rgba(30, 58, 95, 0.98) 100%);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
         }
 
         .logo-container img {
-            height: auto;
-            max-height: 55px;
+            height: 50px;
             width: auto;
-            object-fit: contain;
             transition: transform 0.3s ease;
         }
 
@@ -61,72 +145,65 @@
             transform: scale(1.05);
         }
 
-        /* Menu Styles */
         .nav-menu {
             display: flex;
             list-style: none;
+            gap: 5px;
             align-items: center;
-            gap: 10px;
         }
 
         .nav-item {
             position: relative;
         }
 
+        .nav-item.dropdown {
+            position: static;
+        }
+
         .nav-link {
-            color: white;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #ffffff;
             text-decoration: none;
-            padding: 10px 20px;
-            display: block;
-            font-weight: 500;
-            font-size: 16px;
+            padding: 22px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            border-radius: 4px;
             position: relative;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 5px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 3px;
-            background-color: #4A9FDB;
+            background: linear-gradient(90deg, #2196f3 0%, #64b5f6 100%);
             transition: width 0.3s ease;
         }
 
         .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            color: #64b5f6;
         }
 
         .nav-link:hover::after {
-            width: 60%;
+            width: 80%;
         }
 
-        .nav-link.active {
-            background-color: rgba(255, 255, 255, 0.15);
+        .nav-item.active .nav-link {
+            color: #2196f3;
         }
 
-        .nav-link.active::after {
-            width: 60%;
-        }
-
-        /* Dropdown Styles */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .nav-item.active .nav-link::after {
+            width: 80%;
         }
 
         .dropdown-arrow {
-            font-size: 12px;
+            font-size: 10px;
             transition: transform 0.3s ease;
         }
 
@@ -134,89 +211,349 @@
             transform: rotate(180deg);
         }
 
-        /* Mega Menu */
+        /* ============= MEGA MENU DROPDOWN ============= */
         .mega-menu {
+            --menu-max-height: min(70vh, 560px);
+
             position: absolute;
             top: 100%;
             left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            min-width: 700px;
-            border-radius: 8px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(-50%) translateY(12px);
+
+            max-width: 1100px;
+            width: max(900px, 80vw);
+
+            background: #ffffff;
+            border: 1px solid #dce4ec;
+            border-radius: 12px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+
             opacity: 0;
             visibility: hidden;
-            transform: translateX(-50%) translateY(-10px);
-            transition: all 0.3s ease;
-            margin-top: 10px;
+            pointer-events: none;
+
+            max-height: var(--menu-max-height);
             overflow: hidden;
-            padding: 30px;
+
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease,
+                visibility 0.25s ease;
+
+            z-index: 999;
         }
 
-        .dropdown:hover .mega-menu {
+        /* Show mega menu on hover */
+        .dropdown:hover .mega-menu,
+        .dropdown:focus-within .mega-menu {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto;
             transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-menu-container {
+            display: grid;
+            grid-template-columns: 240px minmax(0, 1fr) 300px;
+            max-height: var(--menu-max-height);
+        }
+
+        /* Left Sidebar Categories */
+        .mega-menu-sidebar {
+            background: #f5f7fa;
+            border-right: 1px solid #e0e0e0;
+            padding: 30px 0;
+        }
+
+        .sidebar-header {
+            color: #1976d2;
+            padding: 0 30px 20px 30px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 10px;
+        }
+
+        .mega-menu-category {
+            padding: 10px 0;
+        }
+
+        .category-item-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 30px;
+            color: #37474f;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border-left: 4px solid transparent;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .category-item-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: #1976d2;
+            transition: width 0.25s ease;
+        }
+
+        .category-item-card:hover,
+        .category-item-card.active {
+            background: #ffffff;
+            color: #1976d2;
+        }
+
+        .category-item-card:hover::before,
+        .category-item-card.active::before {
+            width: 4px;
+        }
+
+        .category-icon {
+            width: 42px;
+            height: 42px;
+            background: #37474f;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .category-item-card:hover .category-icon,
+        .category-item-card.active .category-icon {
+            background: #1976d2;
+            transform: scale(1.05);
+        }
+
+        .category-icon i {
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .category-text h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0d2137;
+            margin-bottom: 3px;
+            transition: color 0.25s ease;
+        }
+
+        .category-item-card:hover .category-text h4,
+        .category-item-card.active .category-text h4 {
+            color: #1976d2;
+        }
+
+        .category-text p {
+            font-size: 12px;
+            color: #78909c;
+            line-height: 1.3;
+        }
+
+        /* Middle Content Area */
+        .mega-menu-content {
+            padding: 40px 45px;
+            overflow-y: auto;
+        }
+
+        .content-header {
+            color: #1976d2;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #1976d2;
+        }
+
+        /* Content Section - Hidden by Default */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeInContent 0.3s ease;
+        }
+
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .mega-menu-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
-        .mega-menu-category {
-            list-style: none;
+        .product-category-section {
+            background: transparent;
         }
 
         .category-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #0057A3;
+            font-size: 15px;
+            font-weight: 700;
+            color: #0d2137;
             margin-bottom: 15px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #0057A3;
+            border-bottom: 2px solid #1976d2;
         }
 
         .category-items {
             list-style: none;
         }
 
-        .category-item {
+        .category-items li {
             margin-bottom: 8px;
         }
 
         .category-link {
-            color: #555;
-            text-decoration: none;
-            padding: 8px 12px;
             display: block;
-            transition: all 0.3s ease;
-            font-size: 15px;
-            border-radius: 4px;
+            color: #546e7a;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 14px;
+            transition: all 0.25s ease;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .category-link::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.25s ease;
+            color: #1976d2;
         }
 
         .category-link:hover {
-            background: #f0f7ff;
-            color: #0057A3;
+            color: #1976d2;
             padding-left: 20px;
         }
 
-        /* Hamburger Menu */
+        .category-link:hover::before {
+            left: 0;
+            opacity: 1;
+        }
+
+        /* Right Details Panel */
+        .mega-menu-details {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            padding: 40px;
+            border-left: 1px solid #e0e0e0;
+            overflow-y: auto;
+        }
+
+        .mega-menu-sidebar,
+        .mega-menu-content,
+        .mega-menu-details {
+            max-height: var(--menu-max-height);
+        }
+
+        .details-header {
+            color: #1976d2;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .details-section {
+            display: none;
+        }
+
+        .details-section.active {
+            display: block;
+            animation: fadeInContent 0.3s ease;
+        }
+
+        .details-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .details-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0d2137;
+            margin-bottom: 15px;
+        }
+
+        .details-description {
+            font-size: 14px;
+            color: #546e7a;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .details-features {
+            margin-top: 20px;
+        }
+
+        .details-features h5 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1976d2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #37474f;
+            font-size: 13px;
+        }
+
+        .feature-item i {
+            color: #1976d2;
+            font-size: 12px;
+        }
+
+        /* ============= HAMBURGER MENU ============= */
         .hamburger {
             display: none;
             flex-direction: column;
-            cursor: pointer;
             gap: 5px;
+            cursor: pointer;
             padding: 10px;
-            z-index: 1001;
         }
 
         .hamburger span {
             width: 28px;
             height: 3px;
-            background: white;
-            border-radius: 3px;
+            background: #ffffff;
+            border-radius: 2px;
             transition: all 0.3s ease;
         }
 
@@ -232,146 +569,293 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* Demo Content */
-        .content {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* ============= RESPONSIVE DESIGN ============= */
+        @media (max-width: 1200px) {
+            .mega-menu {
+                width: min(980px, calc(100vw - 30px));
+            }
+
+            .mega-menu-container {
+                grid-template-columns: 220px minmax(0, 1fr) 260px;
+            }
+
+            .mega-menu-content {
+                padding: 30px 35px;
+            }
+
+            .mega-menu-details {
+                padding: 30px;
+            }
         }
 
-        .content h1 {
-            color: #0057A3;
-            margin-bottom: 20px;
+        @media (max-width: 1024px) {
+            .top-bar-container,
+            .navbar-container {
+                padding: 0 20px;
+            }
+
+            .nav-link {
+                padding: 20px 16px;
+                font-size: 13px;
+            }
+
+            .mega-menu {
+                width: min(900px, calc(100vw - 24px));
+            }
+
+            .mega-menu-container {
+                grid-template-columns: 200px minmax(0, 1fr) 240px;
+            }
+
+            .mega-menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .mega-menu-content {
+                padding: 30px;
+            }
         }
 
-        .content p {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 15px;
+        @media (max-width: 900px) {
+            .mega-menu {
+                width: calc(100vw - 20px);
+            }
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 992px) {
+        @media (max-width: 768px) {
+            .top-bar-left {
+                gap: 15px;
+            }
+
+            .top-bar-item {
+                font-size: 12px;
+            }
+
+            .social-links {
+                display: none;
+            }
+
+            .inquiry-btn {
+                padding: 7px 18px;
+                font-size: 12px;
+            }
+
             .hamburger {
                 display: flex;
             }
 
             .nav-menu {
-                position: fixed;
-                right: -100%;
-                top: 75px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #0d2137 0%, #1e3a5f 100%);
                 flex-direction: column;
-                background: #0057A3;
-                width: 300px;
-                height: calc(100vh - 75px);
-                padding: 30px 0;
-                transition: right 0.3s ease;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-                align-items: flex-start;
-                overflow-y: auto;
                 gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             }
 
             .nav-menu.active {
-                right: 0;
+                max-height: 5000px;
+                overflow-y: auto;
             }
 
             .nav-item {
                 width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .nav-link {
-                width: 100%;
-                padding: 15px 30px;
-                border-radius: 0;
+                padding: 18px 20px;
+                justify-content: space-between;
             }
 
             .nav-link::after {
                 display: none;
             }
 
-            /* Mobile dropdown behavior */
-            .dropdown:hover .dropdown-arrow {
+            .nav-item.dropdown {
+                position: relative;
+            }
+
+            .mega-menu {
+                position: static;
+                left: auto;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
                 transform: none;
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                background: #f5f7fa;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .dropdown:hover .mega-menu,
+            .dropdown:focus-within .mega-menu {
+                transform: none;
+                max-height: 0;
+            }
+
+            /* Higher specificity (0,3,0) to always beat hover/focus-within (0,2,0) on touch devices */
+            .nav-item.dropdown.active .mega-menu {
+                max-height: 3000px;
+                overflow-y: auto;
+            }
+
+            .mega-menu-container {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .mega-menu-sidebar {
+                order: 1;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .mega-menu-content {
+                order: 2;
+                padding: 20px;
+                max-height: none;
+            }
+
+            .mega-menu-details {
+                order: 3;
+                background: #ffffff;
+                padding: 20px;
+                border-left: none;
+                border-top: 1px solid #e0e0e0;
             }
 
             .dropdown.active .dropdown-arrow {
                 transform: rotate(180deg);
             }
 
-            .dropdown:hover .mega-menu {
-                opacity: 0;
-                visibility: hidden;
-                transform: none;
-            }
-
-            .mega-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                margin-top: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.5s ease, padding 0.3s ease;
-                background: rgba(255, 255, 255, 0.1);
-                min-width: auto;
-                width: 100%;
-                padding: 0 20px;
-            }
-
-            .dropdown.active .mega-menu {
-                max-height: 1000px;
-                padding: 20px;
-            }
-
             .mega-menu-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 15px;
             }
 
-            .category-title {
-                color: white;
-                border-bottom-color: rgba(255, 255, 255, 0.3);
-                font-size: 15px;
-            }
-
-            .category-link {
-                color: rgba(255, 255, 255, 0.9);
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-
-            .category-link:hover {
-                background: rgba(255, 255, 255, 0.15);
-                color: white;
-                padding-left: 25px;
+            .details-image {
+                height: 150px;
             }
         }
 
-        @media (max-width: 768px) {
-            .navbar {
-                height: 65px;
+        @media (max-width: 480px) {
+            .top-bar-container {
+                padding: 0 15px;
             }
 
-            body {
-                padding-top: 65px;
+            .top-bar-item {
+                font-size: 11px;
             }
 
-            .nav-menu {
-                top: 65px;
-                height: calc(100vh - 65px);
-                width: 100%;
+            .top-bar-item:nth-child(2) {
+                display: none;
+            }
+
+            .inquiry-btn {
+                padding: 6px 15px;
+                font-size: 11px;
+            }
+
+            .navbar-container {
+                padding: 0 15px;
             }
 
             .logo-container img {
-                max-height: 45px;
+                height: 40px;
+            }
+
+            .sidebar-header {
+                padding: 0 20px 15px 20px;
+                font-size: 12px;
+            }
+
+            .category-item-card {
+                padding: 12px 20px;
+            }
+
+            .category-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .category-text h4 {
+                font-size: 14px;
+            }
+
+            .category-text p {
+                font-size: 11px;
+            }
+
+            .content-header {
+                font-size: 16px;
+            }
+
+            .mega-menu-content {
+                padding: 15px;
+            }
+
+            .mega-menu-details {
+                padding: 15px;
+            }
+
+            .details-title {
+                font-size: 16px;
+            }
+
+            .details-description {
+                font-size: 13px;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <a href="tel:+919876543210" class="top-bar-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 98765 43210</span>
+                </a>
+                <a href="mailto:info@scaequipment.com" class="top-bar-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@scaequipment.com</span>
+                </a>
+            </div>
+            <div class="top-bar-right">
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <a href="#inquiry" class="inquiry-btn">GET QUOTE</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
     <nav class="navbar" id="navbar">
         <div class="navbar-container">
             <div class="logo-container">
@@ -384,78 +868,322 @@
                 <li class="nav-item">
                     <a href="index.html" class="nav-link">Home</a>
                 </li>
+                
                 <li class="nav-item">
                     <a href="about.html" class="nav-link">About</a>
                 </li>
+                
                 <li class="nav-item dropdown" id="productsDropdown">
                     <a href="javascript:void(0)" class="nav-link dropdown-toggle">
                         Products
                         <span class="dropdown-arrow">▼</span>
                     </a>
                     <div class="mega-menu">
-                        <div class="mega-menu-grid">
-                            <div class="mega-menu-category">
-                                <div class="category-title">Forklift</div>
-                                <ul class="category-items">
-                                    <li class="category-item">
-                                        <a href="forklift12.html" class="category-link">Forklift - LT-12</a>
-                                    </li>
-                                    <li class="category-item">
-                                        <a href="forklift16.html" class="category-link">Forklift - LT-16</a>
-                                    </li>
-                                    <li class="category-item">
-                                        <a href="forklift20.html" class="category-link">Forklift - LT-20</a>
-                                    </li>
-                                    <li class="category-item">
-                                        <a href="forklift35.html" class="category-link">Forklift - LT-35</a>
-                                    </li>
-                                    <li class="category-item">
-                                        <a href="forklift40.html" class="category-link">Forklift - LT-40</a>
-                                    </li>
-                                    <li class="category-item">
-                                        <a href="forklift45.html" class="category-link">Forklift - LT-45</a>
-                                    </li>
-                                    <li class="category-item">
-                                        <a href="forklift50.html" class="category-link">Forklift - LT-50</a>
-                                    </li>
-                                </ul>
+                        <div class="mega-menu-container">
+                            <!-- Left Sidebar Categories -->
+                            <div class="mega-menu-sidebar">
+                                <div class="sidebar-header">PRODUCT CATEGORIES</div>
+                                <div class="mega-menu-category">
+                                    <a href="#" class="category-item-card active" data-category="forklift">
+                                        <div class="category-icon">
+                                            <i class="fas fa-forklift"></i>
+                                        </div>
+                                        <div class="category-text">
+                                            <h4>Forklift Range</h4>
+                                            <p>Heavy-duty lifting solutions</p>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="category-item-card" data-category="container">
+                                        <div class="category-icon">
+                                            <i class="fas fa-truck-loading"></i>
+                                        </div>
+                                        <div class="category-text">
+                                            <h4>Empty Container Handler</h4>
+                                            <p>Container management systems</p>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="category-item-card" data-category="reachstacker">
+                                        <div class="category-icon">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <div class="category-text">
+                                            <h4>ReachStacker</h4>
+                                            <p>Advanced stacking equipment</p>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="category-item-card" data-category="other">
+                                        <div class="category-icon">
+                                            <i class="fas fa-cog"></i>
+                                        </div>
+                                        <div class="category-text">
+                                            <h4>Other Equipment</h4>
+                                            <p>Specialized machinery</p>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="mega-menu-category">
-                                <div class="category-title">Empty Container Handler</div>
-                                <ul class="category-items">
-                                    <li class="category-item">
-                                        <a href="emptycontainer3h.html" class="category-link">3 High Empty Container Handler</a>
-                                    </li>
-                                    <li class="category-item">
-                                        <a href="emptycontainer5h.html" class="category-link">5 High Empty Container Handler</a>
-                                    </li>
-                                </ul>
+
+                            <!-- Middle Content Area -->
+                            <div class="mega-menu-content">
+                                <div class="content-header" id="contentHeader">FORKLIFT RANGE</div>
+                                
+                                <!-- Forklift Range Content -->
+                                <div class="content-section active" id="forklift-content">
+                                    <div class="mega-menu-grid">
+                                        <div class="product-category-section">
+                                            <div class="category-title">Standard Models</div>
+                                            <ul class="category-items">
+                                                <li><a href="forklift12.html" class="category-link">Forklift - LT-12</a></li>
+                                                <li><a href="forklift16.html" class="category-link">Forklift - LT-16</a></li>
+                                                <li><a href="forklift20.html" class="category-link">Forklift - LT-20</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-category-section">
+                                            <div class="category-title">Medium Capacity</div>
+                                            <ul class="category-items">
+                                                <li><a href="forklift35.html" class="category-link">Forklift - LT-35</a></li>
+                                                <li><a href="forklift40.html" class="category-link">Forklift - LT-40</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-category-section">
+                                            <div class="category-title">Heavy Capacity</div>
+                                            <ul class="category-items">
+                                                <li><a href="forklift45.html" class="category-link">Forklift - LT-45</a></li>
+                                                <li><a href="forklift50.html" class="category-link">Forklift - LT-50</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Empty Container Handler Content -->
+                                <div class="content-section" id="container-content">
+                                    <div class="mega-menu-grid">
+                                        <div class="product-category-section">
+                                            <div class="category-title">Container Handler Models</div>
+                                            <ul class="category-items">
+                                                <li><a href="emptycontainer3h.html" class="category-link">3 High Empty Container Handler</a></li>
+                                                <li><a href="emptycontainer4h.html" class="category-link">4 High Empty Container Handler</a></li>
+                                                <li><a href="emptycontainer5h.html" class="category-link">5 High Empty Container Handler</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-category-section">
+                                            <div class="category-title">Features</div>
+                                            <ul class="category-items">
+                                                <li><a href="high-stacking-capacity.html" class="category-link">High Stacking Capacity</a></li>
+                                                <li><a href="precision-control-systems.html" class="category-link">Precision Control Systems</a></li>
+                                                <li><a href="advanced-safety-features.html" class="category-link">Advanced Safety Features</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-category-section">
+                                            <div class="category-title">Applications</div>
+                                            <ul class="category-items">
+                                                <li><a href="port-operations.html" class="category-link">Port Operations</a></li>
+                                                <li><a href="terminal-management.html" class="category-link">Terminal Management</a></li>
+                                                <li><a href="logistics-centers.html" class="category-link">Logistics Centers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ReachStacker Content -->
+                                <div class="content-section" id="reachstacker-content">
+                                    <div class="mega-menu-grid">
+                                        <div class="product-category-section">
+                                            <div class="category-title">Electric Models</div>
+                                            <ul class="category-items">
+                                                <li><a href="electricreachstacker.html" class="category-link">Electric ReachStacker</a></li>
+                                                <li><a href="emptyreachstacker.html" class="category-link">Empty Container ReachStacker</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-category-section">
+                                            <div class="category-title">Diesel Models</div>
+                                            <ul class="category-items">
+                                                <li><a href="standardreachstacker.html" class="category-link">Standard Diesel ReachStacker</a></li>
+                                                <li><a href="advancereachstacker.html" class="category-link">Advance Diesel ReachStacker</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-category-section">
+                                            <div class="category-title">Specifications</div>
+                                            <ul class="category-items">
+                                                <li><a href="load-capacity-charts.html" class="category-link">Load Capacity Charts</a></li>
+                                                <li><a href="technical-specifications.html" class="category-link">Technical Specifications</a></li>
+                                                <li><a href="performance-data.html" class="category-link">Performance Data</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Other Equipment Content -->
+                                <div class="content-section" id="other-content">
+                                    <div class="mega-menu-grid">
+                                        <div class="product-category-section">
+                                            <div class="category-title">Specialized Equipment</div>
+                                            <ul class="category-items">
+                                                <li><a href="coilhandler.html" class="category-link">Coil Handler</a></li>
+                                                <li><a href="pushback.html" class="category-link">Push back Tractor 2wd</a></li>
+                                                <li><a href="pushback4wd.html" class="category-link">Push back Tractor 4wd</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-category-section">
+                                            <div class="category-title">Custom Solutions</div>
+                                            <ul class="category-items">
+                                                <li><a href="bespoke-equipment.html" class="category-link">Bespoke Equipment</a></li>
+                                                <li><a href="industry-specific-solutions.html" class="category-link">Industry-Specific Solutions</a></li>
+                                                <li><a href="consultation-services.html" class="category-link">Consultation Services</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="product-category-section">
+                                            <div class="category-title">Support</div>
+                                            <ul class="category-items">
+                                                <li><a href="maintenance-plans.html" class="category-link">Maintenance Plans</a></li>
+                                                <li><a href="spare-parts-support.html" class="category-link">Spare Parts</a></li>
+                                                <li><a href="technical-support-page.html" class="category-link">Technical Support</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mega-menu-category">
-                                <div class="category-title">Electric ReachStacker</div>
-                                <ul class="category-items">
-                                    <li class="category-item">
-                                        <a href="electricreachstacker.html" class="category-link">Electric ReachStacker</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="mega-menu-category">
-                                <div class="category-title">Other Equipment</div>
-                                <ul class="category-items">
-                                    <li class="category-item">
-                                        <a href="coilhandler.html" class="category-link">Coil Handler</a>
-                                    </li>
-                                    <li class="category-item">
-                                        <a href="standardreachstacker.html" class="category-link">Standard ReachStackers</a>
-                                    </li>
-                                </ul>
+
+                            <!-- Right Details Panel -->
+                            <div class="mega-menu-details">
+                                <div class="details-header">DETAILS</div>
+                                
+                                <!-- Forklift Details -->
+                                <div class="details-section active" id="forklift-details">
+                                    <div class="details-image">
+                                        <img src="images/FORKLIFT/LT-35/Yellow Crane 1_3.jpg" alt="Forklift Range">
+                                    </div>
+                                    <div class="details-title">Forklift Range</div>
+                                    <div class="details-description">
+                                        Our comprehensive forklift range offers reliable lifting solutions from 12 to 50 tons, designed for various industrial applications with advanced safety features and efficient performance.
+                                    </div>
+                                    <div class="details-features">
+                                        <h5>Key Features:</h5>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Durable Construction</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Advanced Safety Systems</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Easy Maintenance</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Fuel Efficient</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Container Handler Details -->
+                                <div class="details-section" id="container-details">
+                                    <div class="details-image">
+                                        <img src="images/EMPTYCONTAINERHANDLER/ECT08-5H/WhatsApp Image 2025-05-31 at 12.11.54 PM.jpeg" alt="Container Handler">
+                                    </div>
+                                    <div class="details-title">Empty Container Handler</div>
+                                    <div class="details-description">
+                                        Specialized equipment designed for efficient handling of empty containers in ports and terminals. Available in 3-high, 4-high, and 5-high configurations to meet diverse operational needs.
+                                    </div>
+                                    <div class="details-features">
+                                        <h5>Key Features:</h5>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>High Efficiency</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Precision Control</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Robust Design</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Operator Comfort</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ReachStacker Details -->
+                                <div class="details-section" id="reachstacker-details">
+                                    <div class="details-image">
+                                        <img src="images/electric.jpeg" alt="ReachStacker">
+                                    </div>
+                                    <div class="details-title">ReachStacker Range</div>
+                                    <div class="details-description">
+                                        Advanced container stacking solutions available in electric and diesel variants. Featuring cutting-edge technology for superior performance in container terminals and logistics operations.
+                                    </div>
+                                    <div class="details-features">
+                                        <h5>Key Features:</h5>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Smart Telematics</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Eco-Friendly Options</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>IoT Integration</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Enhanced Stability</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Other Equipment Details -->
+                                <div class="details-section" id="other-details">
+                                    <div class="details-image">
+                                        <img src="images/COILHANDLER/PC-37/yellow crane 4_10.jpg" alt="Other Equipment">
+                                    </div>
+                                    <div class="details-title">Specialized Equipment</div>
+                                    <div class="details-description">
+                                        Custom-engineered solutions including coil handlers and pushback tractors for specialized industrial applications. Designed to meet unique operational requirements.
+                                    </div>
+                                    <div class="details-features">
+                                        <h5>Key Features:</h5>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Custom Solutions</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Industry Leading</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>24/7 Support</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Flexible Configuration</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </li>
+
                 <li class="nav-item">
                     <a href="service.html" class="nav-link">Services</a>
                 </li>
+                
                 <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact</a>
                 </li>
@@ -470,76 +1198,142 @@
     </nav>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
+        // Fixed navbar on scroll
         const navbar = document.getElementById('navbar');
-        const productsDropdown = document.getElementById('productsDropdown');
-        const dropdownToggle = productsDropdown.querySelector('.dropdown-toggle');
+        let navbarOffset = 0;
+        let spacer = null;
 
-        // Hamburger toggle
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+        function initNavbar() {
+            navbarOffset = navbar.offsetTop;
+        }
 
-        // Close menu when clicking on regular links
-        document.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 992) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
-            });
-        });
+        // Small delay to ensure layout is ready
+        setTimeout(initNavbar, 50);
 
-        // Close menu when clicking on category links
-        document.querySelectorAll('.category-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 992) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    productsDropdown.classList.remove('active');
-                }
-            });
-        });
-
-        // Products dropdown toggle for mobile
-        dropdownToggle.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                productsDropdown.classList.toggle('active');
-            }
-        });
-
-        // Sticky navbar shadow on scroll
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll >= navbarOffset) {
+                if (!navbar.classList.contains('fixed')) {
+                    // Create spacer to prevent content jump
+                    spacer = document.createElement('div');
+                    spacer.style.height = navbar.offsetHeight + 'px';
+                    spacer.id = 'navbar-spacer';
+                    navbar.parentNode.insertBefore(spacer, navbar.nextSibling);
+                    navbar.classList.add('fixed');
+                }
                 navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.classList.remove('fixed', 'scrolled');
+                const existingSpacer = document.getElementById('navbar-spacer');
+                if (existingSpacer) existingSpacer.remove();
             }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const productsDropdown = document.getElementById('productsDropdown');
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+
+            // Close mega menu dropdown when hamburger is toggled off
+            if (!navMenu.classList.contains('active')) {
+                productsDropdown.classList.remove('active');
+            }
+        });
+
+        // Mobile dropdown toggle - Fixed to work on resize
+        const dropdownToggle = productsDropdown.querySelector('.dropdown-toggle');
+
+        function setupMobileDropdown() {
+            if (window.innerWidth <= 768) {
+                dropdownToggle.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    productsDropdown.classList.toggle('active');
+                };
+            } else {
+                dropdownToggle.onclick = null;
+                productsDropdown.classList.remove('active');
+            }
+        }
+
+        // Initial setup
+        setupMobileDropdown();
+
+        // Re-setup on window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(setupMobileDropdown, 150);
         });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
-                if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                    hamburger.classList.remove('active');
+            if (!navbar.contains(e.target)) {
+                if (navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
-                    productsDropdown.classList.remove('active');
+                    hamburger.classList.remove('active');
                 }
-            }
-        });
-
-        // Reset menu state on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 992) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
                 productsDropdown.classList.remove('active');
             }
         });
+
+        // Category switching functionality with content and details update
+        const categoryCards = document.querySelectorAll('.category-item-card');
+        const contentHeader = document.getElementById('contentHeader');
+        
+        // Define header titles for each category
+        const headerTitles = {
+            'forklift': 'FORKLIFT RANGE',
+            'container': 'EMPTY CONTAINER HANDLER',
+            'reachstacker': 'REACHSTACKER RANGE',
+            'other': 'OTHER EQUIPMENT'
+        };
+        
+        categoryCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const category = this.getAttribute('data-category');
+                
+                // Remove active class from all cards
+                categoryCards.forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked card
+                this.classList.add('active');
+                
+                // Update content header
+                contentHeader.textContent = headerTitles[category] || 'PRODUCTS';
+                
+                // Hide all content sections
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected content section
+                const contentSection = document.getElementById(category + '-content');
+                if (contentSection) {
+                    contentSection.classList.add('active');
+                }
+                
+                // Hide all details sections
+                document.querySelectorAll('.details-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected details section
+                const detailsSection = document.getElementById(category + '-details');
+                if (detailsSection) {
+                    detailsSection.classList.add('active');
+                }
+            });
+        });
     </script>
+
 </body>
 </html>

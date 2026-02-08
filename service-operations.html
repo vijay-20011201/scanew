@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation & Maintenance (O&M) | SCA Heavy Equipment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* ============= HERO SECTION ============= */
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            min-height: 550px;
+            max-height: 850px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: #0a1929;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            animation: kenBurns 20s ease infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(10,25,41,0.93) 0%, rgba(10,25,41,0.68) 35%, rgba(10,25,41,0.3) 60%, rgba(10,25,41,0.12) 100%),
+                linear-gradient(to top, rgba(10,25,41,0.9) 0%, transparent 35%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 60px;
+            width: 100%;
+        }
+
+        .hero-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 28px;
+        }
+
+        .hero-breadcrumb a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .hero-breadcrumb a:hover { color: #60a5fa; }
+        .hero-breadcrumb .sep { color: rgba(255,255,255,0.25); }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 35px;
+            height: 2px;
+            background: linear-gradient(90deg, #0057A3, #60a5fa);
+        }
+
+        .hero-section h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-section h1 .highlight {
+            background: linear-gradient(135deg, #60a5fa, #00c853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section .subtitle {
+            font-size: 17px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            max-width: 560px;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 14px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .hero-btn-primary {
+            background: linear-gradient(135deg, #0057A3, #1976d2);
+            color: white;
+            box-shadow: 0 4px 20px rgba(0,87,163,0.4);
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,87,163,0.5);
+        }
+
+        .hero-btn-ghost {
+            background: rgba(255,255,255,0.08);
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-btn-ghost:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-3px);
+        }
+
+        /* ============= STATS BAR ============= */
+        .stats-bar {
+            background: linear-gradient(135deg, #0a1929, #1e3a5f);
+            position: relative;
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0057A3, #00c853, #0057A3);
+        }
+
+        .stats-bar-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat-highlight {
+            padding: 28px 24px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.3s;
+        }
+
+        .stat-highlight:last-child { border-right: none; }
+        .stat-highlight:hover { background: rgba(255,255,255,0.03); }
+
+        .stat-highlight .stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: #60a5fa;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-highlight .stat-lbl {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* ============= SECTION HEADERS ============= */
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #0057A3;
+            margin-bottom: 12px;
+        }
+
+        .section-header .label::before,
+        .section-header .label::after {
+            content: '';
+            width: 25px;
+            height: 2px;
+            background: #0057A3;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #64748b;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* ============= OVERVIEW ============= */
+        .overview-section {
+            padding: 80px 60px;
+            background: white;
+        }
+
+        .overview-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .overview-container h3 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .overview-container h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #0057A3, #60a5fa);
+            border-radius: 2px;
+        }
+
+        .overview-container p {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* ============= FEATURES ============= */
+        .features-section {
+            padding: 80px 60px;
+            background: #f8fafc;
+        }
+
+        .features-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 36px 28px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0057A3, #00c853);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,87,163,0.12);
+            border-color: transparent;
+        }
+
+        .feature-card:hover::before { opacity: 1; }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(0,87,163,0.1), rgba(0,87,163,0.05));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.4s;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, #0057A3, #1976d2);
+        }
+
+        .feature-icon i {
+            font-size: 26px;
+            color: #0057A3;
+            transition: color 0.4s;
+        }
+
+        .feature-card:hover .feature-icon i { color: white; }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* ============= CTA SECTION ============= */
+        .cta-section {
+            padding: 70px 60px;
+            background: linear-gradient(135deg, #0a1929 0%, #0d2137 50%, #1e3a5f 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0057A3, #00c853, #0057A3);
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 14px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 36px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-btn-primary {
+            background: linear-gradient(135deg, #0057A3, #1976d2);
+            color: white;
+            box-shadow: 0 4px 20px rgba(0,87,163,0.4);
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,87,163,0.5);
+        }
+
+        .cta-btn-outline {
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+
+        .cta-btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-3px);
+        }
+
+        /* ============= GALLERY SECTION ============= */
+        .gallery-section {
+            padding: 80px 60px;
+            background: #f8fafc;
+        }
+
+        .gallery-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,25,41,0.6) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover::after { opacity: 1; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .gallery-item .zoom-icon {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s;
+        }
+
+        .gallery-item:hover .zoom-icon {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .zoom-icon i {
+            font-size: 16px;
+            color: #0057A3;
+        }
+
+        /* ============= LIGHTBOX ============= */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10,25,41,0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px; right: 24px;
+            width: 48px; height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px; height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+        .lightbox-prev { left: 24px; }
+        .lightbox-next { right: 24px; }
+
+        /* ============= WHATSAPP ============= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            z-index: 9999;
+            background-color: #25D366;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-float img { width: 35px; height: 35px; }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 992px) {
+            .hero-section { height: 70vh; min-height: 480px; }
+            .hero-section h1 { font-size: 40px; }
+            .hero-content { padding: 0 40px; }
+            .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+            .stat-highlight { border-bottom: 1px solid rgba(255,255,255,0.06); }
+            .overview-section, .features-section, .gallery-section { padding: 60px 40px; }
+            .feature-cards { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-section { padding: 50px 40px; }
+            .cta-section h2 { font-size: 28px; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-section { height: 65vh; min-height: 420px; }
+            .hero-section h1 { font-size: 30px; }
+            .hero-content { padding: 0 24px; }
+            .hero-section .subtitle { font-size: 15px; }
+            .hero-breadcrumb { font-size: 12px; margin-bottom: 20px; }
+            .hero-btn { padding: 12px 24px; font-size: 13px; }
+            .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+            .stat-highlight { padding: 20px 16px; }
+            .stat-highlight .stat-val { font-size: 22px; }
+            .overview-section, .features-section, .gallery-section { padding: 50px 20px; }
+            .section-header h2 { font-size: 28px; }
+            .feature-cards { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .cta-section { padding: 50px 24px; }
+            .cta-section h2 { font-size: 24px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg" style="background-image: url('images/COILHANDLER/PC-37/yellow crane 4_14.jpg')"></div>
+        <div class="hero-content">
+            <nav class="hero-breadcrumb">
+                <a href="index.html">Home</a> <span class="sep">/</span>
+                <a href="service.html">Services</a> <span class="sep">/</span>
+                <span>Operation & Maintenance</span>
+            </nav>
+            <span class="hero-label">Full-Service O&M</span>
+            <h1>Operation & <span class="highlight">Maintenance</span></h1>
+            <p class="subtitle">Complete O&M contracts — we deploy skilled operators and maintenance crews to run and maintain your equipment fleet seamlessly.</p>
+            <div class="hero-actions">
+                <a href="contact.html" class="hero-btn hero-btn-primary"><i class="fas fa-headset"></i> Request This Service</a>
+                <a href="service.html" class="hero-btn hero-btn-ghost"><i class="fas fa-arrow-left"></i> All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-bar-inner">
+            <div class="stat-highlight">
+                <div class="stat-val">Turnkey</div>
+                <div class="stat-lbl">O&M Solutions</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="stat-val">99.5%</div>
+                <div class="stat-lbl">Uptime Guarantee</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="stat-val">Trained</div>
+                <div class="stat-lbl">Operators Deployed</div>
+            </div>
+            <div class="stat-highlight">
+                <div class="stat-val">Zero</div>
+                <div class="stat-lbl">Hassle Operations</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overview Section -->
+    <section class="overview-section">
+        <div class="overview-container">
+            <h3>Service Overview</h3>
+                <p>Our Operation & Maintenance (O&M) service provides a complete turnkey solution — we supply trained, certified operators and maintenance personnel to run your heavy equipment fleet, so you can focus entirely on your core business operations.</p>
+                <p>Under O&M contracts, SCA takes full responsibility for equipment operation, routine maintenance, minor and major repairs, operator management, and safety compliance. Our dedicated site teams are trained on your specific equipment and operational workflows.</p>
+                <p>O&M clients benefit from guaranteed equipment uptime, reduced operational costs, elimination of operator recruitment hassles, consistent maintenance quality, and full regulatory compliance — all under a single, transparent contract with clear SLAs and performance metrics.</p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="section-header">
+                <div class="label">What's Included</div>
+                <h2>Service Highlights</h2>
+                <p>Everything you need to know about this service</p>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>Skilled Operators</h3>
+                    <p>Certified, experienced operators deployed at your facility — trained on your specific equipment models and safety protocols.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Integrated Maintenance</h3>
+                    <p>Preventive and corrective maintenance handled by our onsite team — ensuring maximum uptime and equipment longevity.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Performance Monitoring</h3>
+                    <p>Real-time tracking of equipment utilization, operator performance, and maintenance metrics with regular reporting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Clear SLAs</h3>
+                    <p>Well-defined Service Level Agreements with uptime guarantees, response commitments, and transparent performance metrics.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>Safety Management</h3>
+                    <p>Comprehensive safety program including daily pre-ops checks, incident reporting, safety audits, and regulatory compliance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h3>Cost Optimization</h3>
+                    <p>Predictable operational costs, elimination of hiring overheads, reduced downtime — all contributing to significant cost savings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Interested in Operation & Maintenance?</h2>
+            <p>Contact our service team today to discuss your requirements and get a customized service proposal.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-btn cta-btn-primary"><i class="fas fa-envelope"></i> Get a Quote</a>
+                <a href="service.html" class="cta-btn cta-btn-outline"><i class="fas fa-th-large"></i> View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <div class="section-header">
+                <div class="label">Photo Gallery</div>
+                <h2>See It In Action</h2>
+                <p>Our equipment and service team at work</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="images/COILHANDLER/PC-37/yellow crane 4_4.jpg" alt="Operation & Maintenance 1">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="images/COILHANDLER/PC-37/yellow crane 4_11.jpg" alt="Operation & Maintenance 2">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="images/COILHANDLER/PC-37/yellow crane 4_15.jpg" alt="Operation & Maintenance 3">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="images/COILHANDLER/PC-37/yellow crane 4_16.jpg" alt="Operation & Maintenance 4">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="images/COILHANDLER/PC-37/yellow crane 4_10.jpg" alt="Operation & Maintenance 5">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="images/COILHANDLER/PC-37/yellow crane 4_5.jpg" alt="Operation & Maintenance 6">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Header
+        fetch('header.html')
+            .then(r => r.text())
+            .then(data => {
+                const ph = document.getElementById('header-placeholder');
+                ph.innerHTML = data;
+                ph.querySelectorAll('script').forEach(old => {
+                    const s = document.createElement('script');
+                    s.textContent = old.textContent;
+                    old.parentNode.replaceChild(s, old);
+                });
+            });
+
+        // Load Footer
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+
+        // Lightbox
+        var lbImages = [];
+        var lbIndex = 0;
+        document.querySelectorAll('.gallery-item img').forEach(function(img) {
+            lbImages.push(img.src);
+        });
+
+        function openLightbox(i) {
+            lbIndex = i;
+            document.getElementById('lightbox-img').src = lbImages[lbIndex];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navLightbox(dir) {
+            lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+            document.getElementById('lightbox-img').src = lbImages[lbIndex];
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navLightbox(-1);
+            if (e.key === 'ArrowRight') navLightbox(1);
+        });
+    </script>
+</body>
+</html>

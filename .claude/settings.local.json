@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e:*)",
+      "Bash(del \"d:\\\\scanew\\\\create-service-pages.js\")"
+    ]
+  }
+}

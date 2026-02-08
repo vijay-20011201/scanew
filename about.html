@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - SCA Heavy Equipment</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,17 +14,19 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             color: #333;
+            font-size: 18px;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* ============= HERO SECTION ============= */
         .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600') center/cover;
+            height: 50vh;
+            min-height: 300px;
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.85), rgba(0, 87, 163, 0.75)),
+                        url('images/SCA Dec 2025 (19).JPG') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -33,90 +36,223 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 16px;
             font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 12px;
         }
 
         .breadcrumb {
-            font-size: 1rem;
-            opacity: 0.9;
+            font-size: 14px;
+            opacity: 0.8;
         }
 
         .breadcrumb a {
             color: white;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         .breadcrumb a:hover {
-            color: #0057A3;
+            color: #80c4ff;
         }
 
-        /* Company Introduction */
-        .company-intro {
-            padding: 6rem 5%;
-            background: white;
+        /* ============= SECTION HEADERS ============= */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .intro-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .intro-image {
-            position: relative;
-        }
-
-        .intro-image img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .intro-content {
-            border-left: 4px solid #0057A3;
-            padding-left: 2rem;
-        }
-
-        .intro-content h2 {
-            font-size: 2.5rem;
-            color: #0057A3;
-            margin-bottom: 1.5rem;
+        .section-label {
+            display: inline-block;
+            font-size: 13px;
             font-weight: 700;
-        }
-
-        .intro-content p {
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        /* Mission Vision Values */
-        .mvv-section {
-            padding: 6rem 5%;
-            background: #F4F7FA;
+            color: #0057A3;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #0057A3;
-            margin-bottom: 3rem;
+            font-size: 34px;
             font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: #888;
+        }
+
+        .title-line {
+            width: 60px;
+            height: 3px;
+            background: #0057A3;
+            margin: 12px auto 0;
+        }
+
+        /* ============= WHO WE ARE ============= */
+        .who-we-are {
+            padding: 60px 40px;
+            background: #ffffff;
+        }
+
+        .who-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .who-top-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .who-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .who-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .who-image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: #0057A3;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 87, 163, 0.4);
+        }
+
+        .who-image-badge .badge-number {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .who-image-badge .badge-text {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .who-side-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .who-side-content h2 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .who-side-content h2 span {
+            color: #0057A3;
+        }
+
+        .who-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .who-highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 16px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 1px solid #eef2f6;
+            transition: all 0.3s;
+        }
+
+        .who-highlight-item:hover {
+            background: #fff;
+            border-color: #0057A3;
+            box-shadow: 0 6px 20px rgba(0, 87, 163, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .who-highlight-item i {
+            font-size: 20px;
+            color: #0057A3;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 87, 163, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .who-highlight-item .highlight-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .who-highlight-item .highlight-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .who-highlight-item .highlight-sub {
+            font-size: 12px;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* Who We Are - paragraphs below full width */
+        .who-bottom-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            columns: 2;
+            column-gap: 40px;
+        }
+
+        .who-bottom-content p {
+            font-size: 16px;
+            line-height: 1.75;
+            color: #555;
+            margin-bottom: 16px;
+            break-inside: avoid;
+        }
+
+        .who-bottom-content p strong {
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        /* ============= MVV SECTION ============= */
+        .mvv-section {
+            padding: 60px 40px;
+            background: #f8f9fa;
         }
 
         .mvv-grid {
@@ -124,37 +260,49 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 24px;
         }
 
         .mvv-card {
             background: white;
-            padding: 3rem 2rem;
-            border-radius: 8px;
+            padding: 36px 28px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 3px solid #0057A3;
         }
 
         .mvv-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
 
-        .mvv-card i {
-            font-size: 3.5rem;
-            color: #0057A3;
-            margin-bottom: 1.5rem;
+        .mvv-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #0057A3, #003d73);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .mvv-icon i {
+            font-size: 26px;
+            color: white;
         }
 
         .mvv-card h3 {
-            font-size: 1.8rem;
-            color: #0057A3;
-            margin-bottom: 1rem;
+            font-size: 20px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .mvv-card p, .mvv-card ul {
-            font-size: 1rem;
+            font-size: 14px;
             color: #666;
             line-height: 1.7;
         }
@@ -162,477 +310,798 @@
         .mvv-card ul {
             list-style: none;
             padding: 0;
+            text-align: left;
         }
 
         .mvv-card ul li {
-            padding: 0.5rem 0;
-        }
-
-        .mvv-card ul li:before {
-            content: "✓ ";
-            color: #0057A3;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Leadership Section */
-        .leadership-section {
-            padding: 6rem 5%;
-            background: white;
-        }
-
-        .leadership-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .leadership-content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
-            background: #F4F7FA;
-            padding: 3rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-
-        .leader-image {
-            text-align: center;
-        }
-
-        .leader-image-circle {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0057A3, #003d73);
+            padding: 6px 0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            gap: 8px;
         }
 
-        .leader-image-circle i {
-            font-size: 8rem;
-            color: white;
-        }
-
-        .leader-info h3 {
-            font-size: 2rem;
+        .mvv-card ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
             color: #0057A3;
-            margin-bottom: 0.5rem;
+            font-size: 12px;
         }
 
-        .leader-info .title {
-            font-size: 1.2rem;
-            color: #0057A3;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+        /* ============= BOARD OF DIRECTORS ============= */
+        .board-section {
+            padding: 60px 40px;
+            background: #ffffff;
         }
 
-        .leader-info p {
-            font-size: 1.05rem;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        /* Why Choose Us */
-        .why-choose {
-            padding: 6rem 5%;
-            background: white;
-        }
-
-        .features-grid {
+        .board-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 30px;
         }
 
-        .feature-box {
-            background: #F4F7FA;
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
+        .board-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .board-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .board-card-top {
+            background: linear-gradient(135deg, #0057A3, #003d73);
+            padding: 30px 24px 20px;
+        }
+
+        .board-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .board-avatar i {
+            font-size: 42px;
+            color: white;
+        }
+
+        .board-card-top h3 {
+            font-size: 20px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .board-card-top .designation {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .board-card-body {
+            padding: 24px;
+        }
+
+        .board-card-body p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        /* ============= WHY CHOOSE SCA ============= */
+        .why-choose {
+            padding: 60px 40px;
+            background: #f8f9fa;
+        }
+
+        .why-choose-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 12px;
             text-align: center;
             transition: all 0.3s;
-            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .feature-box:hover {
-            background: white;
-            border-color: #0057A3;
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0057A3, #00a8e8);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .why-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .why-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 35px rgba(0, 87, 163, 0.15);
         }
 
-        .feature-box i {
-            font-size: 3rem;
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 87, 163, 0.08);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            transition: all 0.3s;
+        }
+
+        .why-card:hover .why-icon {
+            background: #0057A3;
+        }
+
+        .why-icon i {
+            font-size: 24px;
             color: #0057A3;
-            margin-bottom: 1rem;
             transition: color 0.3s;
         }
 
-        .feature-box:hover i {
-            color: #003d73;
+        .why-card:hover .why-icon i {
+            color: white;
         }
 
-        .feature-box h4 {
-            font-size: 1.3rem;
-            color: #333;
-            margin-bottom: 0.8rem;
+        .why-card h4 {
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        .feature-box p {
-            font-size: 0.95rem;
-            color: #666;
+        .why-card p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
         }
 
-        /* Timeline */
-        .timeline-section {
-            padding: 6rem 5%;
-            background: #F4F7FA;
+        /* ============= OUR JOURNEY TIMELINE ============= */
+        .journey-section {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 100%);
+            overflow: hidden;
         }
 
-        .timeline {
-            max-width: 1200px;
-            margin: 3rem auto 0;
+        .journey-section .section-label { color: #60a5fa; }
+        .journey-section .section-title { color: #ffffff; }
+        .journey-section .title-line { background: #60a5fa; }
+
+        .journey-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Horizontal year nav */
+        .timeline-nav {
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 40px;
+            padding: 0 10px;
         }
 
-        .timeline:before {
-            content: '';
+        .timeline-track {
             position: absolute;
-            width: 4px;
-            background: #0057A3;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 50%;
+            left: 40px;
+            right: 40px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-50%);
+            z-index: 0;
         }
 
-        .timeline-item {
-            padding: 1rem 3rem;
+        .timeline-track-fill {
+            height: 100%;
+            background: #60a5fa;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .timeline-year-btn {
             position: relative;
-            width: 50%;
-            animation: fadeIn 0.8s;
+            z-index: 1;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            flex: 1;
+            max-width: 80px;
+            transition: all 0.3s;
         }
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
+        .year-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
         }
 
-        .timeline-item:nth-child(even) {
-            left: 50%;
+        .timeline-year-btn.active .year-dot,
+        .timeline-year-btn.passed .year-dot {
+            background: #60a5fa;
+            border-color: #60a5fa;
+            box-shadow: 0 0 12px rgba(96, 165, 250, 0.5);
         }
 
-        .timeline-item:before {
-            content: '';
-            position: absolute;
+        .timeline-year-btn.active .year-dot {
             width: 20px;
             height: 20px;
-            background: #0057A3;
-            border: 4px solid white;
-            border-radius: 50%;
-            top: 1.5rem;
-            z-index: 1;
-            box-shadow: 0 0 0 4px #F4F7FA;
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.7);
         }
 
-        .timeline-item:nth-child(odd):before {
-            right: -10px;
+        .year-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            transition: all 0.3s;
+            white-space: nowrap;
         }
 
-        .timeline-item:nth-child(even):before {
-            left: -10px;
+        .timeline-year-btn.active .year-label {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 15px;
         }
 
-        .timeline-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        .timeline-year-btn.passed .year-label {
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .timeline-content .year {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0057A3;
-            margin-bottom: 0.5rem;
+        .timeline-year-btn:hover .year-label {
+            color: #ffffff;
         }
 
-        .timeline-content p {
-            color: #666;
-            font-size: 1rem;
+        /* Content area */
+        .timeline-content-area {
+            position: relative;
+            min-height: 200px;
         }
 
-        /* Certifications */
-        .certifications {
-            padding: 6rem 5%;
-            background: white;
+        .timeline-panel {
+            display: none;
+            animation: panelFadeIn 0.5s ease;
         }
 
-        .cert-content {
+        .timeline-panel.active {
+            display: block;
+        }
+
+        @keyframes panelFadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-panel-inner {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 36px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline-panel-year {
+            font-size: 48px;
+            font-weight: 800;
+            color: #60a5fa;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .timeline-panel-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .timeline-panel-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+
+        .timeline-panel-list li .milestone-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 10px;
+            background: rgba(96, 165, 250, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .timeline-panel-list li .milestone-icon i {
+            font-size: 14px;
+            color: #60a5fa;
+        }
+
+        /* Progress bar under nav */
+        .timeline-progress {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 30px;
+        }
+
+        .progress-pip {
+            width: 24px;
+            height: 3px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.15);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .progress-pip.active {
+            background: #60a5fa;
+            width: 36px;
+        }
+
+        /* ============= CERTIFICATES ============= */
+        .certificates-section {
+            padding: 60px 40px;
+            background: #f8f9fa;
+        }
+
+        .cert-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-            margin-top: 2rem;
+            gap: 24px;
         }
 
-        .cert-image {
+        .cert-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .cert-card img {
+            width: 100%;
+            height: 800px;
+            object-fit: cover;
+        }
+
+        .cert-card-label {
+            padding: 16px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        /* Satisfaction Certificates */
+        .satisfaction-section {
+            padding: 60px 40px;
+            background: #ffffff;
+        }
+
+        .satisfaction-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .satisfaction-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .satisfaction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .satisfaction-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .satisfaction-card-label {
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        /* ============= OUR CLIENTS ============= */
+        .clients-section {
+            padding: 50px 40px;
+            background: #f8f9fa;
+            overflow: hidden;
+        }
+
+        .clients-track-wrapper {
+            overflow: hidden;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .clients-track-wrapper::before,
+        .clients-track-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .clients-track-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #f8f9fa, transparent);
+        }
+
+        .clients-track-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #f8f9fa, transparent);
+        }
+
+        .clients-track {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            animation: scrollClients 30s linear infinite;
+            width: max-content;
+        }
+
+        .clients-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollClients {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .client-logo {
+            flex-shrink: 0;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 12px 24px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
         }
 
-        .cert-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        .client-logo:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-color: #0057A3;
         }
 
-        .cert-text h3 {
-            font-size: 2rem;
-            color: #0057A3;
-            margin-bottom: 1.5rem;
+        .client-logo img {
+            max-height: 45px;
+            max-width: 120px;
+            object-fit: contain;
+            filter: grayscale(80%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
         }
 
-        .cert-list {
-            list-style: none;
+        .client-logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
-        .cert-list li {
-            padding: 1rem 0;
-            font-size: 1.1rem;
-            color: #555;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cert-list li i {
-            color: #0057A3;
-            margin-right: 1rem;
-            font-size: 1.3rem;
-        }
-        /* Floating WhatsApp Button */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    background-color: #25D366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.whatsapp-float img {
-    width: 35px;
-    height: 35px;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-
-        /* CTA Section */
+        /* ============= CTA SECTION ============= */
         .cta-section {
-            padding: 6rem 5%;
-            background: linear-gradient(rgba(0, 87, 163, 0.9), rgba(0, 87, 163, 0.7)),
-                        url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600') center/cover;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #0057A3, #003d73);
             text-align: center;
             color: white;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 30px;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 15px;
+            margin-bottom: 24px;
+            opacity: 0.9;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            border-radius: 50px;
+            padding: 12px 32px;
+            font-size: 14px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             display: inline-block;
         }
 
-        .btn-primary {
+        .btn-white {
             background: white;
             color: #0057A3;
         }
 
-        .btn-primary:hover {
-            background: #003d73;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        .btn-white:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-outline {
+        .btn-outline-white {
             background: transparent;
             color: white;
-            border: 2px solid white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
-        .btn-outline:hover {
+        .btn-outline-white:hover {
             background: white;
             color: #0057A3;
-            transform: translateY(-3px);
+            border-color: white;
+            transform: translateY(-2px);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* ============= WHATSAPP FLOAT ============= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background-color: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
 
-            .hero-content p {
-                font-size: 1.2rem;
-            }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
 
-            .intro-container {
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 32px; }
+            .section-title { font-size: 28px; }
+
+            .who-top-row {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 30px;
             }
 
-            .intro-content {
-                border-left: none;
-                border-top: 4px solid #0057A3;
-                padding-left: 0;
-                padding-top: 2rem;
-            }
+            .who-image img { height: 350px; }
 
-            .mvv-grid {
+            .who-bottom-content { columns: 1; }
+
+            .mvv-grid { grid-template-columns: 1fr; }
+
+            .board-grid {
                 grid-template-columns: 1fr;
+                max-width: 450px;
             }
 
-            .leadership-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .why-choose-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .timeline-nav { overflow-x: auto; justify-content: flex-start; gap: 0; padding-bottom: 10px; }
+            .timeline-year-btn { min-width: 60px; max-width: 60px; }
+            .year-label { font-size: 11px; }
+            .timeline-year-btn.active .year-label { font-size: 13px; }
+            .timeline-panel-inner { padding: 28px 24px; }
+            .timeline-panel-year { font-size: 36px; }
+            .timeline-panel-list li { font-size: 14px; }
+
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .satisfaction-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 80%; max-width: 300px; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { height: 40vh; min-height: 250px; }
+            .hero-content h1 { font-size: 26px; }
+
+            .who-we-are, .mvv-section, .board-section, .why-choose,
+            .journey-section, .certificates-section, .satisfaction-section,
+            .clients-section, .cta-section {
+                padding: 40px 20px;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
+            .who-side-content h2 { font-size: 26px; }
+            .who-highlights { grid-template-columns: 1fr; }
+            .who-bottom-content p { font-size: 15px; }
 
-            .timeline:before {
-                left: 30px;
-            }
+            .why-choose-grid { grid-template-columns: 1fr; }
 
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding-left: 70px;
-                padding-right: 1rem;
-                text-align: left !important;
-            }
+            .cert-grid { grid-template-columns: 1fr; }
+            .satisfaction-grid { grid-template-columns: repeat(2, 1fr); }
 
-            .timeline-item:before {
-                left: 21px !important;
-            }
+            .section-title { font-size: 24px; }
+        }
 
-            .cert-content {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 80%;
-                max-width: 300px;
-            }
+        @media (max-width: 480px) {
+            .satisfaction-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>ABOUT US</h1>
+            <h1>About SCA Heavy Equipment</h1>
             <p>Engineering Solutions You Can Trust</p>
             <div class="breadcrumb">
-                <a href="/">Home</a> → <span>About</span>
+                <a href="index.html">Home</a> &nbsp;/&nbsp; <span>About</span>
             </div>
         </div>
     </section>
 
-    <!-- Company Introduction -->
-    <section class="company-intro">
-        <div class="intro-container">
-            <div class="intro-image">
-                <img src="https://images.unsplash.com/photo-1565611273108-c0c9178b5d27?w=800" alt="SCA Heavy Equipment">
+    <!-- Who We Are -->
+    <section class="who-we-are">
+        <div class="who-wrapper">
+            <!-- Top: Image + 4 Highlights -->
+            <div class="who-top-row">
+                <div class="who-image">
+                    <img src="images/SCA Dec 2025 (19).JPG" alt="SCA Heavy Equipment">
+                    <div class="who-image-badge">
+                        <div class="badge-number">300+</div>
+                        <div class="badge-text">Units Deployed</div>
+                    </div>
+                </div>
+                <div class="who-side-content">
+                    <span class="section-label">Who We Are</span>
+                    <h2>SCA Heavy Equipment <span>Pvt Ltd</span></h2>
+                    <div class="who-highlights">
+                        <div class="who-highlight-item">
+                            <i class="fas fa-industry"></i>
+                            <div class="highlight-text">
+                                <span class="highlight-title">3 Manufacturing Units</span>
+                                <span class="highlight-sub">Bengaluru, Karnataka</span>
+                            </div>
+                        </div>
+                        <div class="who-highlight-item">
+                            <i class="fas fa-certificate"></i>
+                            <div class="highlight-text">
+                                <span class="highlight-title">ISO 9001:2015</span>
+                                <span class="highlight-sub">Certified Quality</span>
+                            </div>
+                        </div>
+                        <div class="who-highlight-item">
+                            <i class="fas fa-bolt"></i>
+                            <div class="highlight-text">
+                                <span class="highlight-title">Electric RS Pioneer</span>
+                                <span class="highlight-sub">First in India</span>
+                            </div>
+                        </div>
+                        <div class="who-highlight-item">
+                            <i class="fas fa-flag"></i>
+                            <div class="highlight-text">
+                                <span class="highlight-title">Make in India</span>
+                                <span class="highlight-sub">Indigenous Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="intro-content">
-                <h2>Who We Are</h2>
-                <p><strong>SCA Heavy Equipment Pvt Ltd</strong> is an ISO 9001:2015 certified company established in 2013 with its headquarters in Bengaluru. With a strong foundation in engineering excellence, SCA specializes in advanced material handling equipment, forklift solutions, container handling systems and heavy-duty lifting machines.</p>
-                <p>SCA is the first Indian company to introduce electrical reach stackers and battery-operated forklifts. It has successfully supplied 11 units of Electric Reach Stackers (ERST) across India.</p>
-                <p>The Company has indigenously designed and developed a host of material handling equipment like Loaded & Empty Reach stackers, Side Lift Trucks, Various Capacity Forklifts ranging from 10 to 50 tonnes, Various Attachments (To make Material Handling Versatile) and Aircraft Push-Back Tractors. </p>
-                <p>More than 300 units, including reach stackers, forklifts, and other equipment, have been successfully sold to leading private and public sector organizations across the length and breadth of the country.</p>
-                <p>After having attained the above milestone, the company has now added certain additional activities and also some additional equipment in the product portfolio. During the financial year 2024-2025, in addition to the existing operation and maintenance services for all make & models of material handling equipment, the company has also entered into the Trade of Rental Services for all models of equipment manufactured by SCA.</p>
+
+            <!-- Bottom: Full width paragraphs -->
+            <div class="who-bottom-content">
+                <p>We SCA Heavy Equipment Pvt Ltd, an <strong>ISO 9001:2015 certified company</strong>, established as a private limited company in 2013 with its headquarters and manufacturing plants in Bangalore, Karnataka, India.</p>
+                <p>The Company has indigenously designed and developed a host of material handling equipment like Loaded & Empty Reach stackers, Side Lift Trucks, Various Capacity Forklifts ranging from 10 to 50 tonnes, Various Attachments, to make Material Handling Versatile and Aircraft Push-Back Tractors.</p>
+                <p>SCA is the <strong>first Indian company</strong> to indigenously develop and manufacture 45 and 50 ton capacity Forklift trucks, equivalent to the renowned international manufacturers of Material Handling Equipment. These forklift trucks have been supplied to reputed customers like Adani and Goel Pipes.</p>
+                <p>A total of <strong>300+ Units</strong> of Material Handling Equipment are successfully deployed by both vital private & public sector companies, spread over the length & breadth of the country.</p>
+                <p>After having attained the above milestone, SCA leaped to the manufacture of Electric Reachstackers. SCA is the <strong>first Indian Manufacturer</strong> to launch Electric Reachstackers in the Indian market with Indigenous content. In a short span of 12 months the company has secured orders for 12 numbers of Electric Reachstackers from esteemed CFS/Port Operators like Gateway Distriparks and J M Baxi Group. The orders received also includes 5 units from Container Corporation of India (CONCOR) A Public Sector Undertaking.</p>
+                <p>The In-house manufacture of Electric Reachstacker is a significant step forward in supporting <strong>MAKE IN INDIA</strong> initiative and contributing to the reduction of Carbon footprint across ports and logistics sector. It is estimated that approximately 280 tons of CO2 per RST per year could be reduced by deployment of Electric Reachstacker v/s Diesel Reachstacker.</p>
+                <p>SCA has established service facilities at various locations in the country to effectively render after-market support to customers. Essential spare parts are also made available along with service to customers.</p>
+                <p>By undertaking O and M contracts from a variety of customers in the public and private sectors, SCA has also made a strong entry into the service industry.</p>
+                <p>SCA also offers Material Handling Equipment on Rental basis.</p>
             </div>
         </div>
     </section>
 
     <!-- Mission Vision Values -->
     <section class="mvv-section">
-        <h2 class="section-title">Mission, Vision & Core Values</h2>
+        <div class="section-header">
+            <span class="section-label">Our Foundation</span>
+            <h2 class="section-title">Mission, Vision & Core Values</h2>
+            <div class="title-line"></div>
+        </div>
         <div class="mvv-grid">
             <div class="mvv-card">
-                <i class="fas fa-bullseye"></i>
+                <div class="mvv-icon"><i class="fas fa-bullseye"></i></div>
                 <h3>Our Mission</h3>
                 <p>To deliver reliable, innovative and high-quality heavy equipment solutions that enhance industrial efficiency and safety across all sectors.</p>
             </div>
             <div class="mvv-card">
-                <i class="fas fa-eye"></i>
+                <div class="mvv-icon"><i class="fas fa-eye"></i></div>
                 <h3>Our Vision</h3>
                 <p>To become a global leader in advanced material handling and heavy lifting machinery, recognized for engineering excellence and customer-centric innovation.</p>
             </div>
             <div class="mvv-card">
-                <i class="fas fa-heart"></i>
+                <div class="mvv-icon"><i class="fas fa-heart"></i></div>
                 <h3>Our Values</h3>
                 <ul>
                     <li>Integrity & Transparency</li>
@@ -645,117 +1114,323 @@
         </div>
     </section>
 
-    <!-- Leadership Section -->
-    <section class="leadership-section">
-        <div class="leadership-container">
-            <h2 class="section-title">Leadership</h2>
-            <div class="leadership-content">
-                <div class="leader-image">
-                    <div class="leader-image-circle">
-                        <i class="fas fa-user-tie"></i>
+    <!-- Board of Directors -->
+    <section class="board-section">
+        <div class="section-header">
+            <span class="section-label">Leadership</span>
+            <h2 class="section-title">Board of Directors</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="board-grid">
+            <div class="board-card">
+                <div class="board-card-top">
+                    <div class="board-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>Mr. S. Rajagopal</h3>
+                    <p class="designation">Founder & Managing Director</p>
+                </div>
+                <div class="board-card-body">
+                    <p>With over two decades of experience in the heavy equipment industry, Mr. S. Rajagopal founded SCA with a vision to revolutionize material handling solutions in India. His deep understanding of engineering combined with a customer-first approach has established SCA as a trusted name.</p>
+                </div>
+            </div>
+            <div class="board-card">
+                <div class="board-card-top">
+                    <div class="board-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>Mr.s. Jaya Chandran</h3>
+                    <p class="designation">Director & Advisor</p>
+                </div>
+                <div class="board-card-body">
+                    <p>He has to his credit experience of Five plus decades in
+Finance, Sales and marketing of Mining & Port Handling
+Equipments in the country and abroad.
+Ex-General Manager- Bharat Earth Movers Ltd.
+Ex-Director- Cargotec India Pvt. Ltd (Kalmar)
+Ex-Advisor- Dewanchand Ramsaran Corporation Pvt. Ltd</p>
+                </div>
+            </div>
+            <div class="board-card">
+                <div class="board-card-top">
+                    <div class="board-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>Mr. R. Jayasimman</h3>
+                    <p class="designation">Director - Business Development</p>
+                </div>
+                <div class="board-card-body">
+                    <p>A confident engineer with good exposure in the material handling industry especially in new energy products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose SCA -->
+    <section class="why-choose">
+        <div class="section-header">
+            <span class="section-label">Our Strengths</span>
+            <h2 class="section-title">Why Choose SCA</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="why-choose-grid">
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-certificate"></i></div>
+                <h4>ISO Certified Manufacturing</h4>
+                <p>ISO 9001:2015 certified processes ensuring world-class quality standards in every product</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-cogs"></i></div>
+                <h4>Advanced Engineering</h4>
+                <p>State-of-the-art technology and precision manufacturing capabilities with indigenous design</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-weight-hanging"></i></div>
+                <h4>High Load Capacity</h4>
+                <p>Equipment designed to handle extreme loads from 10 to 50 tonnes with maximum safety</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-sliders-h"></i></div>
+                <h4>Customizable Solutions</h4>
+                <p>Tailored equipment configurations to meet specific operational and industrial needs</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-headset"></i></div>
+                <h4>After-Sales Support</h4>
+                <p>Comprehensive O&M, maintenance, training and technical assistance across India</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-leaf"></i></div>
+                <h4>Eco-Friendly Solutions</h4>
+                <p>Electric Reachstackers reducing ~280 tons CO2 per unit annually, supporting green logistics</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey Timeline -->
+    <section class="journey-section">
+        <div class="section-header">
+            <span class="section-label">Milestones</span>
+            <h2 class="section-title">Our Journey</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="journey-wrapper">
+            <!-- Horizontal Year Navigation -->
+            <div class="timeline-nav" id="timelineNav">
+                <div class="timeline-track"><div class="timeline-track-fill" id="trackFill"></div></div>
+                <button class="timeline-year-btn active" data-index="0"><span class="year-dot"></span><span class="year-label">2013</span></button>
+                <button class="timeline-year-btn" data-index="1"><span class="year-dot"></span><span class="year-label">2014</span></button>
+                <button class="timeline-year-btn" data-index="2"><span class="year-dot"></span><span class="year-label">2015</span></button>
+                <button class="timeline-year-btn" data-index="3"><span class="year-dot"></span><span class="year-label">2016</span></button>
+                <button class="timeline-year-btn" data-index="4"><span class="year-dot"></span><span class="year-label">2017</span></button>
+                <button class="timeline-year-btn" data-index="5"><span class="year-dot"></span><span class="year-label">2018</span></button>
+                <button class="timeline-year-btn" data-index="6"><span class="year-dot"></span><span class="year-label">2019</span></button>
+                <button class="timeline-year-btn" data-index="7"><span class="year-dot"></span><span class="year-label">2020</span></button>
+                <button class="timeline-year-btn" data-index="8"><span class="year-dot"></span><span class="year-label">2021</span></button>
+                <button class="timeline-year-btn" data-index="9"><span class="year-dot"></span><span class="year-label">2022</span></button>
+                <button class="timeline-year-btn" data-index="10"><span class="year-dot"></span><span class="year-label">2023</span></button>
+                <button class="timeline-year-btn" data-index="11"><span class="year-dot"></span><span class="year-label">2024</span></button>
+                <button class="timeline-year-btn" data-index="12"><span class="year-dot"></span><span class="year-label">2025</span></button>
+            </div>
+
+            <!-- Content Panels -->
+            <div class="timeline-content-area">
+                <div class="timeline-panel active" data-index="0">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2013</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-building"></i></span>SCA Heavy Equipment Pvt Ltd incorporated as a Private Limited Company in Bengaluru</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="leader-info">
-                    <h3>Mr. S. Rajagopal</h3>
-                    <p class="title">Founder & Managing Director</p>
-                    <p>With over two decades of experience in the heavy equipment industry, Mr. S. Rajagopal founded SCA Heavy Equipment with a vision to revolutionize material handling solutions in India. His deep understanding of engineering principles combined with a customer-first approach has been instrumental in establishing SCA as a trusted name in industrial machinery.</p>
-                    <p>Under his leadership, SCA has consistently pushed the boundaries of innovation, delivering cutting-edge equipment that meets the evolving needs of modern industries. His commitment to quality, safety, and excellence continues to drive the company's growth and success.</p>
+                <div class="timeline-panel" data-index="1">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2014</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-truck-loading"></i></span>Launched First Forklift - 12 Ton Capacity</li>
+                            <li><span class="milestone-icon"><i class="fas fa-truck-loading"></i></span>Launched Forklift - 16 Ton Capacity</li>
+                        </ul>
+                    </div>
                 </div>
+                <div class="timeline-panel" data-index="2">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2015</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-truck-loading"></i></span>Launched Forklift - 20 Ton Capacity</li>
+                            <li><span class="milestone-icon"><i class="fas fa-industry"></i></span>Established Manufacturing Unit 1</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="3">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2016</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-truck-loading"></i></span>Launched Forklift - 25 Ton Capacity</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="4">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2017</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-truck-loading"></i></span>Launched Forklift - 35 Ton Capacity</li>
+                            <li><span class="milestone-icon"><i class="fas fa-industry"></i></span>Established Manufacturing Unit 2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="5">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2018</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-box-open"></i></span>Launched Empty Container Handler - 3 High</li>
+                            <li><span class="milestone-icon"><i class="fas fa-cogs"></i></span>Launched Standard Reach Stacker</li>
+                            <li><span class="milestone-icon"><i class="fas fa-cogs"></i></span>Launched Advance Reach Stacker</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="6">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2019</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-truck-loading"></i></span>Launched Forklift - 40 Ton Capacity</li>
+                            <li><span class="milestone-icon"><i class="fas fa-cogs"></i></span>Launched Coil Handler</li>
+                            <li><span class="milestone-icon"><i class="fas fa-box-open"></i></span>Launched Empty Container Handler - 5 High</li>
+                            <li><span class="milestone-icon"><i class="fas fa-certificate"></i></span>Achieved ISO 9001:2015 Certification</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="7">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2020</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-truck-moving"></i></span>Launched Side Lift Truck</li>
+                            <li><span class="milestone-icon"><i class="fas fa-plane"></i></span>Launched Aircraft Push Back Tractor</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="8">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2021</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-truck-loading"></i></span>Launched Forklift - 45 Ton Capacity</li>
+                            <li><span class="milestone-icon"><i class="fas fa-industry"></i></span>Established Manufacturing Unit 3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="9">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2022</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-truck-loading"></i></span>Launched Forklift - 50 Ton Capacity</li>
+                            <li><span class="milestone-icon"><i class="fas fa-flag"></i></span>First Indian company to manufacture 45 & 50 Ton Forklifts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="10">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2023</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-bolt"></i></span>Launched Electric Reach Stacker</li>
+                            <li><span class="milestone-icon"><i class="fas fa-flag"></i></span>First Indian manufacturer of Electric Reachstackers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="11">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2024</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-chart-line"></i></span>Achieved 300+ Units Deployed across India</li>
+                            <li><span class="milestone-icon"><i class="fas fa-handshake"></i></span>O&M Contracts Commenced</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-panel" data-index="12">
+                    <div class="timeline-panel-inner">
+                        <div class="timeline-panel-year">2025</div>
+                        <ul class="timeline-panel-list">
+                            <li><span class="milestone-icon"><i class="fas fa-box-open"></i></span>Launched Empty Container Reach Stacker</li>
+                            <li><span class="milestone-icon"><i class="fas fa-file-contract"></i></span>Secured 12 Electric Reach Stacker Orders</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress pips -->
+            <div class="timeline-progress" id="timelineProgress"></div>
+        </div>
+    </section>
+
+    <!-- ISO Certificates -->
+    <section class="certificates-section">
+        <div class="section-header">
+            <span class="section-label">Quality Assurance</span>
+            <h2 class="section-title">ISO Certificates</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <img src="images/iso certificate 1.png" alt="ISO Certificate 1">
+                <div class="cert-card-label">ISO 9001:2015 Certificate</div>
+            </div>
+            <div class="cert-card">
+                <img src="images/iso certificate 2.png" alt="ISO Certificate 2">
+                <div class="cert-card-label">Quality Management System</div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Satisfactory Certificates -->
+    <section class="satisfaction-section">
+        <div class="section-header">
+            <span class="section-label">Client Testimonials</span>
+            <h2 class="section-title">Satisfactory Certificates</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="satisfaction-grid">
+            <div class="satisfaction-card">
+                <img src="images/satisfaction-cert-1.jpg" alt="Satisfactory Certificate 1">
+                <div class="satisfaction-card-label">Satisfaction Certificate 1</div>
+            </div>
+            <div class="satisfaction-card">
+                <img src="images/satisfaction-cert-2.jpg" alt="Satisfactory Certificate 2">
+                <div class="satisfaction-card-label">Satisfaction Certificate 2</div>
+            </div>
+            <div class="satisfaction-card">
+                <img src="images/satisfaction-cert-3.jpg" alt="Satisfactory Certificate 3">
+                <div class="satisfaction-card-label">Satisfaction Certificate 3</div>
+            </div>
+            <div class="satisfaction-card">
+                <img src="images/satisfaction-cert-4.jpg" alt="Satisfactory Certificate 4">
+                <div class="satisfaction-card-label">Satisfaction Certificate 4</div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="why-choose">
-        <h2 class="section-title">Why Choose SCA</h2>
-        <div class="features-grid">
-            <div class="feature-box">
-                <i class="fas fa-certificate"></i>
-                <h4>ISO Certified Manufacturing</h4>
-                <p>ISO 9001:2015 certified processes ensuring world-class quality standards</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-cogs"></i>
-                <h4>Advanced Engineering</h4>
-                <p>State-of-the-art technology and precision manufacturing capabilities</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-weight-hanging"></i>
-                <h4>High Load Capacity</h4>
-                <p>Equipment designed to handle extreme loads with maximum safety</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-sliders-h"></i>
-                <h4>Customizable Solutions</h4>
-                <p>Tailored equipment configurations to meet specific operational needs</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-headset"></i>
-                <h4>After-Sales Support</h4>
-                <p>Comprehensive maintenance, training and technical assistance</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-users"></i>
-                <h4>Experienced Team</h4>
-                <p>Skilled engineers and technicians with decades of industry expertise</p>
-            </div>
+    <!-- Our Clients -->
+    <section class="clients-section">
+        <div class="section-header">
+            <span class="section-label">Trusted Partners</span>
+            <h2 class="section-title">Our Clients</h2>
+            <div class="title-line"></div>
         </div>
-    </section>
-
-    <!-- Timeline -->
-    <section class="timeline-section">
-        <h2 class="section-title">Our Journey</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="year">2013</div>
-                    <p>SCA Heavy Equipment founded in Bengaluru with a focus on material handling solutions</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="year">2015</div>
-                    <p>Launched first forklift series with advanced load capacity and safety features</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="year">2018</div>
-                    <p>Expanded product line with reachstacker production and container handling systems</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="year">2021</div>
-                    <p>Major expansion of manufacturing facility and ISO 9001:2015 certification achieved</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="year">2023</div>
-                    <p>Introduced electric-powered equipment line focusing on sustainability and efficiency</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications -->
-    <section class="certifications">
-        <h2 class="section-title">Quality Certifications & Standards</h2>
-        <div class="cert-content">
-            <div class="cert-image">
-                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800" alt="Quality Testing">
-            </div>
-            <div class="cert-text">
-                <h3>Commitment to Excellence</h3>
-                <ul class="cert-list">
-                    <li><i class="fas fa-check-circle"></i> ISO 9001:2015 Certified Quality Management</li>
-                    <li><i class="fas fa-check-circle"></i> In-House Testing & Quality Control Facilities</li>
-                    <li><i class="fas fa-check-circle"></i> Strict Manufacturing Process Standards</li>
-                    <li><i class="fas fa-check-circle"></i> International Safety Compliance</li>
-                    <li><i class="fas fa-check-circle"></i> Regular Equipment Performance Audits</li>
-                    <li><i class="fas fa-check-circle"></i> Continuous Improvement Programs</li>
-                </ul>
+        <div class="clients-track-wrapper">
+            <div class="clients-track" id="clientsTrack">
+                <div class="client-logo"><img src="images/Clogo1.jpg" alt="Client 1"></div>
+                <div class="client-logo"><img src="images/Clogo2.jpg" alt="Client 2"></div>
+                <div class="client-logo"><img src="images/Clogo3.jpg" alt="Client 3"></div>
+                <div class="client-logo"><img src="images/Clogo4.jpg" alt="Client 4"></div>
+                <div class="client-logo"><img src="images/Clogo5.jpg" alt="Client 5"></div>
+                <div class="client-logo"><img src="images/Clogo6.jpg" alt="Client 6"></div>
+                <div class="client-logo"><img src="images/Clogo7.jpeg" alt="Client 7"></div>
+                <div class="client-logo"><img src="images/Clogo8.jpg" alt="Client 8"></div>
+                <div class="client-logo"><img src="images/Clogo9.jpg" alt="Client 9"></div>
+                <div class="client-logo"><img src="images/Clogo10.jpg" alt="Client 10"></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="client-logo"><img src="images/Clogo1.jpg" alt="Client 1"></div>
+                <div class="client-logo"><img src="images/Clogo2.jpg" alt="Client 2"></div>
+                <div class="client-logo"><img src="images/Clogo3.jpg" alt="Client 3"></div>
+                <div class="client-logo"><img src="images/Clogo4.jpg" alt="Client 4"></div>
+                <div class="client-logo"><img src="images/Clogo5.jpg" alt="Client 5"></div>
+                <div class="client-logo"><img src="images/Clogo6.jpg" alt="Client 6"></div>
+                <div class="client-logo"><img src="images/Clogo7.jpeg" alt="Client 7"></div>
+                <div class="client-logo"><img src="images/Clogo8.jpg" alt="Client 8"></div>
+                <div class="client-logo"><img src="images/Clogo9.jpg" alt="Client 9"></div>
+                <div class="client-logo"><img src="images/Clogo10.jpg" alt="Client 10"></div>
             </div>
         </div>
     </section>
@@ -765,14 +1440,15 @@
         <h2>Want to Know More About Our Products?</h2>
         <p>Discover our complete range of heavy equipment solutions designed for your industry</p>
         <div class="cta-buttons">
-            <a href="/products" class="btn btn-primary">Explore Products</a>
-            <a href="/contact" class="btn btn-outline">Get a Quote</a>
+            <a href="index.html#products" class="btn btn-white">Explore Products</a>
+            <a href="contact.html" class="btn btn-outline-white">Get a Quote</a>
         </div>
     </section>
+
     <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
+    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
@@ -782,7 +1458,13 @@
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
+                const placeholder = document.getElementById('header-placeholder');
+                placeholder.innerHTML = data;
+                placeholder.querySelectorAll('script').forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = oldScript.textContent;
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
             })
             .catch(error => console.error('Error loading header:', error));
 
@@ -793,7 +1475,110 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             })
             .catch(error => console.error('Error loading footer:', error));
+
+        // ===== Journey Timeline Auto-Cycling =====
+        (function() {
+            const buttons = document.querySelectorAll('.timeline-year-btn');
+            const panels = document.querySelectorAll('.timeline-panel');
+            const trackFill = document.getElementById('trackFill');
+            const timelineNav = document.getElementById('timelineNav');
+            const progressContainer = document.getElementById('timelineProgress');
+            const journeySection = document.querySelector('.journey-section');
+            const total = buttons.length;
+            let current = 0;
+            let autoTimer = null;
+            let isHovered = false;
+            let isInView = false;
+
+            // Build progress pips
+            for (let i = 0; i < total; i++) {
+                const pip = document.createElement('span');
+                pip.className = 'progress-pip' + (i === 0 ? ' active' : '');
+                pip.dataset.index = i;
+                pip.addEventListener('click', function() {
+                    goTo(parseInt(this.dataset.index));
+                    resetAuto();
+                });
+                progressContainer.appendChild(pip);
+            }
+            const pips = progressContainer.querySelectorAll('.progress-pip');
+
+            function goTo(index) {
+                current = index;
+                // Update buttons
+                buttons.forEach(function(btn, i) {
+                    btn.classList.remove('active', 'passed');
+                    if (i < index) btn.classList.add('passed');
+                    if (i === index) btn.classList.add('active');
+                });
+                // Update panels
+                panels.forEach(function(p, i) {
+                    p.classList.remove('active');
+                    if (i === index) p.classList.add('active');
+                });
+                // Update track fill
+                var pct = total > 1 ? (index / (total - 1)) * 100 : 0;
+                trackFill.style.width = pct + '%';
+                // Update pips
+                pips.forEach(function(pip, i) {
+                    pip.classList.remove('active');
+                    if (i === index) pip.classList.add('active');
+                });
+                // Scroll the nav horizontally (not the page) on mobile
+                var btn = buttons[index];
+                var navRect = timelineNav.getBoundingClientRect();
+                var btnRect = btn.getBoundingClientRect();
+                var scrollTarget = timelineNav.scrollLeft + (btnRect.left - navRect.left) - (navRect.width / 2) + (btnRect.width / 2);
+                timelineNav.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+            }
+
+            // Click handler for year buttons
+            buttons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    goTo(parseInt(this.dataset.index));
+                    resetAuto();
+                });
+            });
+
+            // Auto cycle - only when section is in viewport
+            function startAuto() {
+                stopAuto();
+                autoTimer = setInterval(function() {
+                    if (isInView && !isHovered) {
+                        var next = (current + 1) % total;
+                        goTo(next);
+                    }
+                }, 3000);
+            }
+
+            function stopAuto() {
+                if (autoTimer) {
+                    clearInterval(autoTimer);
+                    autoTimer = null;
+                }
+            }
+
+            function resetAuto() {
+                stopAuto();
+                startAuto();
+            }
+
+            // Pause on hover
+            journeySection.addEventListener('mouseenter', function() { isHovered = true; });
+            journeySection.addEventListener('mouseleave', function() { isHovered = false; });
+
+            // Only auto-cycle when section is visible in viewport
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    isInView = entry.isIntersecting;
+                });
+            }, { threshold: 0.3 });
+            observer.observe(journeySection);
+
+            // Init
+            goTo(0);
+            startAuto();
+        })();
     </script>
-            
 </body>
 </html>

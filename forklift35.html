@@ -5,625 +5,868 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>35 Ton Forklift - LT-35 | SCA Heavy Equipment</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
             color: #333;
             line-height: 1.6;
-            background: #fafafa;
+            background: #ffffff;
         }
 
-        /* Hero Section */
+        /* ============= HERO SECTION ============= */
         .hero-section {
             position: relative;
-            height: 80vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), 
-                        url('images/FORKLIFT/LT-35/Yellow\ Crane\ 1_1.jpg') center/cover;
+            height: 85vh;
+            min-height: 550px;
+            max-height: 850px;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            color: white;
+            background: #0a1929;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            animation: kenBurns 20s ease infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(10,25,41,0.93) 0%, rgba(10,25,41,0.68) 35%, rgba(10,25,41,0.3) 60%, rgba(10,25,41,0.12) 100%),
+                linear-gradient(to top, rgba(10,25,41,0.9) 0%, transparent 35%);
+            z-index: 1;
         }
 
         .hero-content {
-            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 5%;
+            padding: 0 60px;
             width: 100%;
         }
 
-        .breadcrumb {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
+        .hero-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 28px;
         }
 
-        .breadcrumb a {
-            color: rgba(255, 255, 255, 0.8);
+        .hero-breadcrumb a {
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .breadcrumb a:hover {
-            color: white;
-        }
+        .hero-breadcrumb a:hover { color: #60a5fa; }
+        .hero-breadcrumb .sep { color: rgba(255,255,255,0.25); }
 
-        .breadcrumb span {
-            margin: 0 0.5rem;
-        }
-
-        .product-title-wrapper {
-            max-width: 700px;
-        }
-
-        .title-accent {
-            width: 60px;
-            height: 5px;
-            background: #0057A3;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-title h1 {
-            font-size: 3.5rem;
-            color: white;
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
             font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+            color: #60a5fa;
+            margin-bottom: 20px;
         }
 
-        .product-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 400;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
+        .hero-label::before {
+            content: '';
+            width: 35px;
+            height: 2px;
+            background: linear-gradient(90deg, #0057A3, #60a5fa);
         }
 
-        .hero-buttons {
+        .hero-section h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-section h1 .highlight {
+            background: linear-gradient(135deg, #60a5fa, #00c853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section .subtitle {
+            font-size: 17px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            max-width: 520px;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
             display: flex;
-            gap: 1.5rem;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
         .hero-btn {
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
+            padding: 14px 30px;
+            font-size: 14px;
             font-weight: 600;
-            border-radius: 4px;
+            border-radius: 10px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 8px;
             transition: all 0.3s;
             cursor: pointer;
-            border: 2px solid transparent;
+            border: none;
         }
 
         .hero-btn-primary {
-            background: #0057A3;
+            background: linear-gradient(135deg, #0057A3, #1976d2);
             color: white;
-            border-color: #0057A3;
+            box-shadow: 0 4px 20px rgba(0,87,163,0.4);
         }
 
         .hero-btn-primary:hover {
-            background: #003d73;
-            border-color: #003d73;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,87,163,0.5);
         }
 
-        .hero-btn-outline {
-            background: transparent;
+        .hero-btn-ghost {
+            background: rgba(255,255,255,0.08);
             color: white;
-            border-color: white;
+            border: 1.5px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .hero-btn-outline:hover {
-            background: white;
+        .hero-btn-ghost:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-3px);
+        }
+
+        /* ============= SPECS BAR ============= */
+        .specs-bar {
+            background: linear-gradient(135deg, #0a1929, #1e3a5f);
+            position: relative;
+        }
+
+        .specs-bar::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0057A3, #00c853, #0057A3);
+        }
+
+        .specs-bar-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .spec-highlight {
+            padding: 28px 24px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.3s;
+        }
+
+        .spec-highlight:last-child { border-right: none; }
+        .spec-highlight:hover { background: rgba(255,255,255,0.03); }
+
+        .spec-highlight .spec-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: #60a5fa;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .spec-highlight .spec-lbl {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* ============= SECTION HEADERS ============= */
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             color: #0057A3;
-            transform: translateY(-2px);
+            margin-bottom: 12px;
         }
 
-        /* Image Gallery */
-        .gallery-section {
-            padding: 5rem 5%;
-            background: white;
-            margin-top: 2rem;
+        .section-header .label::before,
+        .section-header .label::after {
+            content: '';
+            width: 25px;
+            height: 2px;
+            background: #0057A3;
         }
 
-        .gallery-container {
-            max-width: 1200px;
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #64748b;
+            max-width: 550px;
             margin: 0 auto;
         }
 
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s;
-            background: #f5f5f5;
-            aspect-ratio: 1;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 87, 163, 0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Feature Cards */
+        /* ============= FEATURES ============= */
         .features-section {
-            padding: 5rem 5%;
-            background: #fafafa;
+            padding: 80px 60px;
+            background: #f8fafc;
         }
 
         .features-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .feature-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 24px;
         }
 
         .feature-card {
             background: white;
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
+            padding: 36px 28px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0057A3, #00c853);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
         .feature-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 87, 163, 0.15);
+            box-shadow: 0 20px 40px rgba(0,87,163,0.12);
+            border-color: transparent;
         }
 
+        .feature-card:hover::before { opacity: 1; }
+
         .feature-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #0057A3, #003d73);
-            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(0,87,163,0.1), rgba(0,87,163,0.05));
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 8px 20px rgba(0, 87, 163, 0.3);
+            margin-bottom: 20px;
+            transition: all 0.4s;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, #0057A3, #1976d2);
         }
 
         .feature-icon i {
-            font-size: 2.5rem;
-            color: white;
+            font-size: 26px;
+            color: #0057A3;
+            transition: color 0.4s;
         }
 
+        .feature-card:hover .feature-icon i { color: white; }
+
         .feature-card h3 {
-            font-size: 1.5rem;
-            color: #0057A3;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
         }
 
         .feature-card p {
-            font-size: 1rem;
-            color: #666;
+            font-size: 15px;
+            color: #64748b;
             line-height: 1.7;
         }
 
-        /* Tabs Section */
+        /* ============= TABS SECTION ============= */
         .tabs-section {
-            padding: 5rem 5%;
+            padding: 80px 60px;
             background: white;
         }
 
         .tabs-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .tab-nav {
             display: flex;
-            background: #f5f5f5;
-            border-radius: 10px 10px 0 0;
-            overflow: hidden;
-            border-bottom: 3px solid #e0e0e0;
+            gap: 4px;
+            background: #f1f5f9;
+            padding: 5px;
+            border-radius: 14px;
+            margin-bottom: 28px;
         }
 
         .tab-button {
             flex: 1;
-            padding: 1.2rem 2rem;
+            padding: 14px 24px;
             background: transparent;
             border: none;
-            font-size: 1.1rem;
+            font-size: 15px;
             font-weight: 600;
-            color: #666;
+            color: #64748b;
             cursor: pointer;
+            border-radius: 10px;
             transition: all 0.3s;
-            position: relative;
+            font-family: 'Inter', sans-serif;
         }
 
-        .tab-button:hover {
-            background: #e8e8e8;
-            color: #0057A3;
-        }
+        .tab-button:hover { color: #0057A3; }
 
         .tab-button.active {
             background: white;
             color: #0057A3;
-        }
-
-        .tab-button.active:after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #0057A3;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .tab-content {
             display: none;
-            padding: 3rem;
-            background: white;
-            border-radius: 0 0 10px 10px;
+            padding: 36px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
             animation: fadeIn 0.4s;
         }
 
-        .tab-content.active {
-            display: block;
-        }
+        .tab-content.active { display: block; }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .tab-content h3 {
-            font-size: 1.8rem;
-            color: #0057A3;
-            margin-bottom: 1.5rem;
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .tab-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #0057A3, #60a5fa);
+            border-radius: 2px;
         }
 
         .tab-content p {
-            font-size: 1.05rem;
-            color: #555;
+            font-size: 16px;
+            color: #475569;
             line-height: 1.8;
-            margin-bottom: 1rem;
+            margin-bottom: 14px;
         }
 
+        /* Spec Table */
         .spec-table {
             width: 100%;
-            margin-top: 2rem;
-            border-collapse: collapse;
+            margin-top: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .spec-table th {
+            background: linear-gradient(135deg, #0a1929, #1e3a5f);
+            color: white;
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         .spec-table tr {
-            border-bottom: 1px solid #e0e0e0;
+            transition: background 0.2s;
         }
 
+        .spec-table tbody tr:hover { background: #f0f9ff; }
+
         .spec-table td {
-            padding: 1rem;
-            font-size: 1rem;
+            padding: 13px 20px;
+            font-size: 15px;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .spec-table td:first-child {
             font-weight: 600;
-            color: #0057A3;
+            color: #0f172a;
             width: 40%;
+            position: relative;
+            padding-left: 28px;
         }
 
-        .spec-table td:last-child {
-            color: #555;
+        .spec-table td:first-child::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 55%;
+            background: #0057A3;
+            border-radius: 2px;
         }
 
-        .dimension-image {
-            width: 100%;
+        .spec-table td:last-child { color: #475569; }
+
+        .spec-table tr:nth-child(even) { background: #fafbfc; }
+        .spec-table tr:nth-child(even):hover { background: #f0f9ff; }
+
+        /* ============= CTA SECTION ============= */
+        .cta-section {
+            padding: 70px 60px;
+            background: linear-gradient(135deg, #0a1929 0%, #0d2137 50%, #1e3a5f 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0057A3, #00c853, #0057A3);
+        }
+
+        .cta-container {
             max-width: 800px;
-            margin: 2rem auto;
-            display: block;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            padding: 4rem 5%;
-            background: #fafafa;
-        }
-
-        .buttons-container {
-            max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
         }
 
-        .btn {
-            padding: 1.2rem 3rem;
-            font-size: 1.1rem;
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 14px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 36px;
+            font-size: 15px;
             font-weight: 600;
-            border-radius: 50px;
+            border-radius: 12px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 10px;
             transition: all 0.3s;
             cursor: pointer;
             border: none;
         }
 
-        .btn-primary {
-            background: #0057A3;
+        .cta-btn-primary {
+            background: linear-gradient(135deg, #0057A3, #1976d2);
             color: white;
+            box-shadow: 0 4px 20px rgba(0,87,163,0.4);
         }
 
-        .btn-primary:hover {
-            background: #003d73;
+        .cta-btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 87, 163, 0.3);
+            box-shadow: 0 8px 30px rgba(0,87,163,0.5);
         }
 
-        .btn-outline {
+        .cta-btn-outline {
             background: transparent;
-            color: #0057A3;
-            border: 2px solid #0057A3;
-        }
-
-        .btn-outline:hover {
-            background: #0057A3;
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 87, 163, 0.3);
+            border: 1.5px solid rgba(255,255,255,0.3);
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
+        .cta-btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-3px);
+        }
+
+        /* ============= GALLERY SECTION ============= */
+        .gallery-section {
+            padding: 80px 60px;
+            background: #f8fafc;
+        }
+
+        .gallery-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,25,41,0.6) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover::after { opacity: 1; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .gallery-item .zoom-icon {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s;
+        }
+
+        .gallery-item:hover .zoom-icon {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .zoom-icon i {
+            font-size: 16px;
+            color: #0057A3;
+        }
+
+        /* ============= LIGHTBOX ============= */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10,25,41,0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px; right: 24px;
+            width: 48px; height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px; height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+        .lightbox-prev { left: 24px; }
+        .lightbox-next { right: 24px; }
+
+        /* ============= WHATSAPP ============= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            z-index: 9999;
+            background-color: #25D366;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-float img { width: 35px; height: 35px; }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 992px) {
             .hero-section {
-                height: 60vh;
-                min-height: 450px;
+                height: 70vh;
+                min-height: 480px;
             }
 
-            .product-title h1 {
-                font-size: 2.5rem;
-            }
+            .hero-section h1 { font-size: 40px; }
+            .hero-content { padding: 0 40px; }
 
-            .product-subtitle {
-                font-size: 1.1rem;
-            }
+            .specs-bar-inner { grid-template-columns: repeat(2, 1fr); }
+            .spec-highlight { border-bottom: 1px solid rgba(255,255,255,0.06); }
 
-            .hero-buttons {
-                flex-direction: column;
-            }
+            .features-section, .tabs-section, .gallery-section { padding: 60px 40px; }
 
-            .hero-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
+            .feature-cards { grid-template-columns: repeat(2, 1fr); }
 
-            .image-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
-            .feature-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .tab-nav {
-                overflow-x: auto;
-                border-radius: 10px;
-            }
-
-            .tab-button {
-                white-space: nowrap;
-                min-width: 150px;
-            }
-
-            .buttons-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 350px;
-                justify-content: center;
-            }
+            .cta-section { padding: 50px 40px; }
+            .cta-section h2 { font-size: 28px; }
         }
 
         @media (max-width: 640px) {
             .hero-section {
-                height: 50vh;
-                min-height: 400px;
+                height: 65vh;
+                min-height: 420px;
             }
 
-            .product-title h1 {
-                font-size: 2rem;
-            }
+            .hero-section h1 { font-size: 30px; }
+            .hero-content { padding: 0 24px; }
+            .hero-section .subtitle { font-size: 15px; }
+            .hero-breadcrumb { font-size: 12px; margin-bottom: 20px; }
+            .hero-btn { padding: 12px 24px; font-size: 13px; }
 
-            .product-subtitle {
-                font-size: 1rem;
-            }
+            .specs-bar-inner { grid-template-columns: repeat(2, 1fr); }
+            .spec-highlight { padding: 20px 16px; }
+            .spec-highlight .spec-val { font-size: 22px; }
 
-            .title-accent {
-                width: 40px;
-            }
+            .features-section, .tabs-section, .gallery-section { padding: 50px 20px; }
 
-            .image-grid {
-                grid-template-columns: 1fr;
-            }
+            .section-header h2 { font-size: 28px; }
+            .feature-cards { grid-template-columns: 1fr; }
 
-            .feature-cards {
-                grid-template-columns: 1fr;
-            }
+            .tab-nav { flex-direction: column; gap: 2px; }
+            .tab-content { padding: 24px 16px; }
 
-            .tab-content {
-                padding: 2rem 1rem;
-            }
+            .gallery-grid { grid-template-columns: 1fr; }
+
+            .cta-section { padding: 50px 24px; }
+            .cta-section h2 { font-size: 24px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
         }
-        /* Floating WhatsApp Button */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    background-color: #25D366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.whatsapp-float img {
-    width: 35px;
-    height: 35px;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
+    
     </style>
 </head>
 <body>
-    <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
+
     <!-- Hero Section -->
     <section class="hero-section">
+        <div class="hero-bg" style="background-image: url('images/FORKLIFT/LT-35/Yellow Crane 1_1.jpg')"></div>
         <div class="hero-content">
-            <div class="product-title-wrapper">
-                <div class="title-accent"></div>
-                <div class="product-title">
-                    <h1>35 Ton Forklift – LT-35</h1>
-                    <p class="product-subtitle">Heavy-duty steel leverage into shareables and thinking at a high level. We really need to agglomerate stakeholders to deliver a better outcome.</p>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#specifications" class="hero-btn hero-btn-primary">
-                        <i class="fas fa-list"></i>
-                        EXPLORE
-                    </a>
-                    <a href="/quote" class="hero-btn hero-btn-outline">
-                        <i class="fas fa-file-alt"></i>
-                        GET A QUOTE
-                    </a>
-                </div>
+            <nav class="hero-breadcrumb">
+                <a href="index.html">Home</a> <span class="sep">/</span>
+                <a href="index.html#products">Products</a> <span class="sep">/</span>
+                <span>35 Ton Forklift</span>
+            </nav>
+            <span class="hero-label">Forklift Range</span>
+            <h1>LT-35 <span class="highlight"> Ton</span> Forklift</h1>
+            <p class="subtitle">Industrial-grade 35 ton forklift built for demanding port operations and construction site applications.</p>
+            <div class="hero-actions">
+                <a href="#specifications" class="hero-btn hero-btn-primary"><i class="fas fa-cogs"></i> Specifications</a>
+                <a href="contact.html" class="hero-btn hero-btn-ghost"><i class="fas fa-envelope"></i> Get a Quote</a>
             </div>
         </div>
     </section>
 
-    <!-- Image Gallery -->
-    <section class="gallery-section">
-        <div class="gallery-container">
-            <div class="image-grid">
-                <div class="gallery-item">
-                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_1.jpg" alt="Forklift Front View">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_11.jpg" alt="Forklift Side View">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_12.jpg" alt="Forklift in Action">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_5.jpg" alt="Forklift Detail">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_22.jpg" alt="Forklift Cabin">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_15.jpg" alt="Forklift Operation">
-                </div>
+    <!-- Key Specs Bar -->
+    <div class="specs-bar">
+        <div class="specs-bar-inner">
+            <div class="spec-highlight">
+                <div class="spec-val">35 Ton</div>
+                <div class="spec-lbl">Lifting Capacity</div>
+            </div>
+            <div class="spec-highlight">
+                <div class="spec-val">4.0 m</div>
+                <div class="spec-lbl">Lift Height</div>
+            </div>
+            <div class="spec-highlight">
+                <div class="spec-val">248 HP</div>
+                <div class="spec-lbl">Engine Power</div>
+            </div>
+            <div class="spec-highlight">
+                <div class="spec-val">ISO</div>
+                <div class="spec-lbl">9001:2015 Certified</div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Feature Cards -->
+    <!-- Features -->
     <section class="features-section">
         <div class="features-container">
+            <div class="section-header">
+                <div class="label">Key Features</div>
+                <h2>Built for Performance</h2>
+                <p>Engineering excellence meets robust construction in every detail</p>
+            </div>
             <div class="feature-cards">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Strength and Stability</h3>
-                    <p>Engineered with robust construction and advanced stability systems to handle heavy loads with maximum safety and reliability in demanding industrial environments.</p>
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Strength & Stability</h3>
+                    <p>Engineered with robust construction and advanced stability systems for maximum safety and reliability in demanding industrial environments.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-cogs"></i></div>
                     <h3>Ease & Safety in Operations</h3>
-                    <p>Intuitive controls, ergonomic design, and comprehensive safety features ensure smooth operation while protecting both operators and cargo during material handling tasks.</p>
+                    <p>Intuitive controls, ergonomic cabin design, and comprehensive safety features ensure smooth operation while protecting operators and cargo.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
                     <h3>Superior Performance</h3>
-                    <p>High-performance engine, efficient hydraulics, and precision engineering deliver exceptional lifting capacity, speed, and productivity for your operations.</p>
+                    <p>High-performance engine, efficient hydraulics, and precision engineering deliver exceptional lifting capacity, speed, and productivity.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Tabs Section -->
-    <section class="tabs-section">
+    <section class="tabs-section" id="specifications">
         <div class="tabs-container">
+            <div class="section-header">
+                <div class="label">Product Details</div>
+                <h2>Technical Information</h2>
+                <p>Complete specifications, overview, and design drawings</p>
+            </div>
             <div class="tab-nav">
                 <button class="tab-button active" onclick="openTab(event, 'overview')">Overview</button>
-                <button class="tab-button" onclick="openTab(event, 'specifications')">Specifications</button>
+                <button class="tab-button" onclick="openTab(event, 'specs')">Specifications</button>
                 <button class="tab-button" onclick="openTab(event, 'design')">Design</button>
             </div>
 
             <div id="overview" class="tab-content active">
                 <h3>Product Overview</h3>
-                <p>The SCA LT-10 is a heavy-duty 10-ton forklift designed for demanding industrial applications. Built with superior engineering and premium materials, this forklift delivers exceptional performance, reliability, and safety in material handling operations.</p>
-                <p>Equipped with advanced hydraulic systems and a powerful engine, the LT-10 ensures smooth operation even under maximum load conditions. The ergonomic operator cabin provides comfort during extended shifts, while comprehensive safety features protect both the operator and your valuable cargo.</p>
-                <p>Whether you're working in warehouses, manufacturing facilities, ports, or construction sites, the LT-10 provides the strength, stability, and precision you need to maximize productivity and operational efficiency.</p>
+                <p>The SCA LT-35 is a heavy-duty 35-ton forklift designed for demanding industrial applications. Built with superior engineering and premium materials, this forklift delivers exceptional performance, reliability, and safety in material handling operations.</p>
+                <p>Equipped with advanced hydraulic systems and a powerful engine, the LT-35 ensures smooth operation even under maximum load conditions. The ergonomic operator cabin provides comfort during extended shifts, while comprehensive safety features protect both the operator and your valuable cargo.</p>
+                <p>Whether you're working in warehouses, manufacturing facilities, ports, or construction sites, the LT-35 provides the strength, stability, and precision you need to maximize productivity and operational efficiency.</p>
             </div>
 
-            <div id="specifications" class="tab-content">
-    <h3>Technical Specifications</h3>
+            <div id="specs" class="tab-content">
+                <h3>Technical Specifications</h3>
 
     <table class="spec-table">
         <tr>
@@ -751,10 +994,10 @@
             <td>PU, Off White</td>
         </tr>
     </table>
-</div>
+            </div>
 
             <div id="design" class="tab-content">
-    <h3>Design Features</h3>
+                <h3>Design Features</h3>
 
     <iframe 
         src="gadiagram/LT-35 CONCOR GA DRAWING-Model.pdf"
@@ -762,63 +1005,135 @@
         height="600px"
         style="border: none;">
     </iframe>
-</div>
-    </section>
-
-    <!-- Action Buttons -->
-    <section class="action-buttons">
-        <div class="buttons-container">
-            <a href="/brochures/lt-10-forklift.pdf" download class="btn btn-primary">
-                <i class="fas fa-download"></i>
-                Download Brochure
-            </a>
-            <a href="/quote" class="btn btn-outline">
-                <i class="fas fa-file-alt"></i>
-                Request Quote
-            </a>
+            </div>
         </div>
     </section>
-    <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
 
-    <!-- Footer will be loaded here -->
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Transform Your Operations?</h2>
+            <p>Download the complete product brochure or get a customized quote tailored to your specific requirements.</p>
+            <div class="cta-buttons">
+                <a href="gadiagram/LT-35 CONCOR GA DRAWING-Model.pdf" class="cta-btn cta-btn-primary"><i class="fas fa-download"></i> Download Brochure</a>
+                <a href="contact.html" class="cta-btn cta-btn-outline"><i class="fas fa-file-alt"></i> Request Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Bottom, above footer) -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <div class="section-header">
+                <div class="label">Photo Gallery</div>
+                <h2>See It In Action</h2>
+                <p>Explore our equipment from every angle</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_1.jpg" alt="35 Ton Forklift View 1">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_11.jpg" alt="35 Ton Forklift View 2">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_12.jpg" alt="35 Ton Forklift View 3">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_5.jpg" alt="35 Ton Forklift View 4">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_22.jpg" alt="35 Ton Forklift View 5">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="images/FORKLIFT/LT-35/Yellow Crane 1_15.jpg" alt="35 Ton Forklift View 6">
+                    <div class="zoom-icon"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
     <div id="footer-placeholder"></div>
 
     <script>
         // Load Header
         fetch('header.html')
-            .then(response => response.text())
+            .then(r => r.text())
             .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
+                const ph = document.getElementById('header-placeholder');
+                ph.innerHTML = data;
+                ph.querySelectorAll('script').forEach(old => {
+                    const s = document.createElement('script');
+                    s.textContent = old.textContent;
+                    old.parentNode.replaceChild(s, old);
+                });
+            });
 
         // Load Footer
         fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
+            .then(r => r.text())
+            .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+
+        // Tabs
         function openTab(evt, tabName) {
-            // Hide all tab content
-            const tabContents = document.getElementsByClassName('tab-content');
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove('active');
-            }
-
-            // Remove active class from all buttons
-            const tabButtons = document.getElementsByClassName('tab-button');
-            for (let i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove('active');
-            }
-
-            // Show current tab and mark button as active
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
             evt.currentTarget.classList.add('active');
         }
+
+        // Lightbox
+        var lbImages = [];
+        var lbIndex = 0;
+        document.querySelectorAll('.gallery-item img').forEach(function(img) {
+            lbImages.push(img.src);
+        });
+
+        function openLightbox(i) {
+            lbIndex = i;
+            document.getElementById('lightbox-img').src = lbImages[lbIndex];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navLightbox(dir) {
+            lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+            document.getElementById('lightbox-img').src = lbImages[lbIndex];
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navLightbox(-1);
+            if (e.key === 'ArrowRight') navLightbox(1);
+        });
     </script>
 </body>
 </html>
