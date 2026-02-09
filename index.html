@@ -333,6 +333,96 @@
             100% { top: 100%; }
         }
 
+        /* ============= HERO CARD ============= */
+        .hero-card-container {
+            position: absolute;
+            top: 50%;
+            right: 80px;
+            transform: translateY(-50%);
+            z-index: 3;
+            width: 550px;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 14px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        }
+
+        .hero-card-image {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: #0a1929;
+        }
+
+        .hero-card-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .hero-card-slide.active {
+            opacity: 1;
+        }
+
+        .hero-card-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-card-info {
+            padding: 14px 10px 6px;
+            color: white;
+        }
+
+        .hero-card-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            letter-spacing: 0.2px;
+        }
+
+        .hero-card-subtitle {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            font-weight: 500;
+        }
+
+        .hero-card-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 0 4px;
+        }
+
+        .hero-card-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .hero-card-dot.active {
+            background: #ffffff;
+            width: 22px;
+            border-radius: 4px;
+        }
+
         /* ============= ABOUT SECTION ============= */
         .about-section {
             padding: 60px 40px;
@@ -695,6 +785,13 @@
         }
 
         /* ============= RESPONSIVE ============= */
+        @media (max-width: 1200px) {
+            .hero-card-container {
+                width: 340px;
+                right: 40px;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero {
                 height: 85vh;
@@ -716,6 +813,10 @@
 
             .hero-scroll {
                 right: 50px;
+            }
+
+            .hero-card-container {
+                display: none;
             }
 
             .about-section {
@@ -966,6 +1067,44 @@
             </div>
         </div>
 
+        <!-- Hero Card -->
+        <div class="hero-card-container">
+            <div class="hero-card">
+                <div class="hero-card-image">
+                    <div class="hero-card-slide active">
+                        <img src="images/FORKLIFT/LT-35/Yellow Crane 1_1.jpg" alt="Forklift Range">
+                    </div>
+                    <div class="hero-card-slide">
+                        <img src="images/SCA Dec 2025 (12).JPG" alt="Electric ReachStacker">
+                    </div>
+                    <div class="hero-card-slide">
+                        <img src="images/SCA Dec 2025 (19).JPG" alt="Reachstackers Handler">
+                    </div>
+                    <div class="hero-card-slide">
+                        <img src="images/COILHANDLER/PC-37/yellow crane 4_14.jpg" alt="Coil Handler">
+                    </div>
+                    <div class="hero-card-slide">
+                        <img src="images/FORKLIFT/IMG_20260206_140713.jpg.jpeg" alt="Diesel ReachStacker">
+                    </div>
+                    <div class="hero-card-slide">
+                        <img src="images/WhatsApp Image 2024-12-24 at 11.23.49 AM-3.jpeg" alt="Advance ReachStacker">
+                    </div>
+                </div>
+                <div class="hero-card-info">
+                    <div class="hero-card-title" id="cardTitle">Forklift Range 10–50 Tons</div>
+                    <div class="hero-card-subtitle" id="cardSubtitle">SCA Heavy Equipment</div>
+                </div>
+                <div class="hero-card-dots" id="cardDots">
+                    <button class="hero-card-dot active" aria-label="Slide 1"></button>
+                    <button class="hero-card-dot" aria-label="Slide 2"></button>
+                    <button class="hero-card-dot" aria-label="Slide 3"></button>
+                    <button class="hero-card-dot" aria-label="Slide 4"></button>
+                    <button class="hero-card-dot" aria-label="Slide 5"></button>
+                    <button class="hero-card-dot" aria-label="Slide 6"></button>
+                </div>
+            </div>
+        </div>
+
         <!-- Bottom Navigation: Counter + Progress Bars -->
         <div class="hero-nav">
             <div class="hero-counter">
@@ -1154,13 +1293,35 @@
             })
             .catch(error => console.error('Error loading footer:', error));
 
-        // Hero Carousel with Progress Bars
+        // Hero Carousel with Progress Bars + Card Sync
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
         const totalSlides = slides.length;
         const slideNumEl = document.getElementById('slideNum');
         const progressWrap = document.getElementById('heroProgress');
         let heroTimer;
+
+        // Card elements
+        const cardSlides = document.querySelectorAll('.hero-card-slide');
+        const cardDots = document.querySelectorAll('.hero-card-dot');
+        const cardTitle = document.getElementById('cardTitle');
+        const cardSubtitle = document.getElementById('cardSubtitle');
+        const cardTitles = [
+            'Forklift Range 10–50 Tons',
+            'Electric ReachStacker',
+            'Reachstackers Handler',
+            'Coil Handler',
+            'Diesel ReachStacker',
+            'Advance ReachStacker'
+        ];
+        const cardSubtitles = [
+            'SCA Heavy Equipment',
+            'Zero Emission Technology',
+            'Container Solutions',
+            'Specialized Handling',
+            'Heavy Lifting Power',
+            'High Power Lifting'
+        ];
 
         // Build progress bars dynamically
         for (let i = 0; i < totalSlides; i++) {
@@ -1172,11 +1333,15 @@
         }
         const bars = progressWrap.querySelectorAll('.hero-progress-bar');
 
+        // Card dot click handlers
+        cardDots.forEach(function(dot, i) {
+            dot.addEventListener('click', function() { goToSlide(i); });
+        });
+
         function showSlide(index) {
             slides.forEach(function(s) { s.classList.remove('active'); });
             bars.forEach(function(b) {
                 b.classList.remove('active');
-                // Reset fill animation
                 var fill = b.querySelector('.hero-progress-fill');
                 fill.style.animation = 'none';
                 fill.offsetHeight;
@@ -1186,6 +1351,14 @@
             slides[index].classList.add('active');
             bars[index].classList.add('active');
             slideNumEl.textContent = String(index + 1).padStart(2, '0');
+
+            // Sync card
+            cardSlides.forEach(function(s) { s.classList.remove('active'); });
+            cardDots.forEach(function(d) { d.classList.remove('active'); });
+            cardSlides[index].classList.add('active');
+            cardDots[index].classList.add('active');
+            cardTitle.textContent = cardTitles[index];
+            cardSubtitle.textContent = cardSubtitles[index];
         }
 
         function nextSlide() {

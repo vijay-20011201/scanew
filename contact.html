@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - SCA Heavy Equipment Pvt Ltd</title>
+    <title>Contact Us - SCA Heavy Equipment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         * {
@@ -15,164 +19,237 @@
         body {
             font-family: 'Inter', sans-serif;
             color: #333;
+            font-size: 18px;
             line-height: 1.6;
-            background: #F8FAFB;
+            overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* ============= HERO SECTION ============= */
         .hero {
-            background: linear-gradient(135deg, #0057A3 0%, #003D73 100%);
-            color: white;
-            padding: 100px 20px 60px;
+            height: 50vh;
+            min-height: 300px;
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.85), rgba(0, 87, 163, 0.75)),
+                        url('images/SCA Dec 2025 (12).JPG') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-        }
-
-        .breadcrumbs {
-            font-size: 14px;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .breadcrumbs a {
             color: white;
-            text-decoration: none;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
             opacity: 0.8;
         }
 
-        .breadcrumbs a:hover {
-            opacity: 1;
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .hero h1 {
-            font-size: 48px;
+        .breadcrumb a:hover {
+            color: #80c4ff;
+        }
+
+        /* ============= SECTION HEADERS ============= */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 13px;
             font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Locations Section */
-        .locations-section {
-            padding: 80px 20px;
-            background: white;
+            color: #0057A3;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 38px;
-            color: #0057A3;
-            margin-bottom: 50px;
+            font-size: 34px;
             font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
         }
 
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1400px;
+        .section-subtitle {
+            font-size: 15px;
+            color: #888;
+        }
+
+        .title-line {
+            width: 60px;
+            height: 3px;
+            background: #0057A3;
+            margin: 12px auto 0;
+        }
+
+        /* ============= QUICK CONTACT BAR ============= */
+        .quick-contact {
+            padding: 0 40px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quick-contact-grid {
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
-        .location-card {
+        .quick-card {
             background: white;
-            padding: 35px 30px;
+            padding: 28px 24px;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-left: 4px solid #0057A3;
-        }
-
-        .location-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 87, 163, 0.15);
-        }
-
-        .location-card h3 {
-            color: #0057A3;
-            font-size: 22px;
-            margin-bottom: 20px;
-            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .location-icon {
-            color: #0057A3;
-            font-size: 24px;
-        }
-
-        .location-card p {
-            color: #555;
-            font-size: 15px;
-            line-height: 1.8;
-            display: flex;
-            align-items: start;
-            gap: 10px;
-        }
-
-        /* Map Section */
-        .map-section {
-            padding: 80px 20px;
-            background: #F8FAFB;
-        }
-
-        .map-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
+            gap: 18px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border-top: 3px solid #0057A3;
         }
 
-        .map-container iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
+        .quick-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 87, 163, 0.15);
         }
 
-        /* Contact Form Section */
-        .contact-form-section {
-            padding: 80px 20px;
-            background: white;
+        .quick-card-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 87, 163, 0.08);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s;
         }
 
-        .form-container {
-            max-width: 800px;
+        .quick-card:hover .quick-card-icon {
+            background: #0057A3;
+        }
+
+        .quick-card-icon i {
+            font-size: 22px;
+            color: #0057A3;
+            transition: color 0.3s;
+        }
+
+        .quick-card:hover .quick-card-icon i {
+            color: white;
+        }
+
+        .quick-card-text h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .quick-card-text p {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .quick-card-text a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .quick-card-text a:hover {
+            color: #0057A3;
+        }
+
+        /* ============= CONTACT FORM + INFO ============= */
+        .contact-section {
+            padding: 60px 40px;
+            background: #ffffff;
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Form Side */
+        .form-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #eef2f6;
+        }
+
+        .form-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+
+        .form-card .form-desc {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            color: #0057A3;
+            font-size: 13px;
             font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 15px;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #E0E0E0;
-            border-radius: 8px;
-            font-size: 15px;
+            padding: 12px 16px;
+            border: 2px solid #e0e5ec;
+            border-radius: 10px;
+            font-size: 14px;
             font-family: inherit;
             transition: all 0.3s ease;
+            background: white;
         }
 
         .form-group input:focus,
@@ -180,431 +257,849 @@
         .form-group select:focus {
             outline: none;
             border-color: #0057A3;
-            box-shadow: 0 0 0 3px rgba(0, 87, 163, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 87, 163, 0.08);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 150px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            min-height: 120px;
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #0057A3, #0071CC);
+            background: linear-gradient(135deg, #0057A3, #003d73);
             color: white;
-            padding: 16px 50px;
+            padding: 14px 36px;
             border: none;
-            border-radius: 50px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
-            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 87, 163, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 87, 163, 0.3);
         }
 
         .submit-btn:disabled {
             background: #ccc;
             cursor: not-allowed;
             transform: none;
+            box-shadow: none;
         }
 
         .form-message {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
+            margin-top: 16px;
+            padding: 14px;
+            border-radius: 10px;
             text-align: center;
             font-weight: 600;
+            font-size: 14px;
             display: none;
         }
 
         .form-message.success {
-            background: #E8F5E9;
-            color: #2E7D32;
-            border: 2px solid #4CAF50;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
         }
 
         .form-message.error {
-            background: #FFEBEE;
-            color: #C62828;
-            border: 2px solid #F44336;
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #ef9a9a;
         }
 
-        /* Contact Team Section */
+        /* Info Side */
+        .info-side {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card-header {
+            background: linear-gradient(135deg, #0057A3, #003d73);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .info-card-header i {
+            font-size: 20px;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .info-card-header h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .info-card-body {
+            padding: 24px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row i {
+            font-size: 14px;
+            color: #0057A3;
+            width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .info-row span,
+        .info-row a {
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-row a:hover {
+            color: #0057A3;
+        }
+
+        .office-hours-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: rgba(0, 200, 83, 0.1);
+            color: #00c853;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* ============= MAP SECTION (Dark Theme) ============= */
+        .map-section {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #0a1929 0%, #1a3a5c 100%);
+        }
+
+        .map-section .section-label { color: #60a5fa; }
+        .map-section .section-title { color: #ffffff; }
+        .map-section .title-line { background: #60a5fa; }
+
+        .map-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-sidebar {
+            background: rgba(255, 255, 255, 0.04);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px 20px;
+            overflow-y: auto;
+            max-height: 480px;
+        }
+
+        .map-sidebar-title {
+            color: #60a5fa;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            padding-left: 4px;
+        }
+
+        .map-location-item {
+            padding: 14px 16px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .map-location-item:hover,
+        .map-location-item.active {
+            background: rgba(96, 165, 250, 0.08);
+            border-color: rgba(96, 165, 250, 0.25);
+        }
+
+        .map-location-item .loc-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .map-location-item .loc-badge.hq {
+            background: rgba(0, 200, 83, 0.15);
+            color: #00c853;
+        }
+
+        .map-location-item .loc-badge.unit {
+            background: rgba(96, 165, 250, 0.15);
+            color: #60a5fa;
+        }
+
+        .map-location-item .loc-name {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .map-location-item .loc-address {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        #leafletMap {
+            width: 100%;
+            height: 480px;
+        }
+
+        .custom-popup .leaflet-popup-content-wrapper {
+            border-radius: 10px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .custom-popup .leaflet-popup-content {
+            margin: 0;
+            min-width: 220px;
+        }
+
+        .popup-content {
+            padding: 16px 18px;
+        }
+
+        .popup-content h4 {
+            color: #0057A3;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .popup-content p {
+            color: #666;
+            font-size: 12px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* ============= TEAM SECTION ============= */
         .team-section {
-            padding: 80px 20px;
-            background: #F8FAFB;
+            padding: 60px 40px;
+            background: #f8f9fa;
         }
 
         .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
         }
 
         .team-card {
             background: white;
-            padding: 35px 30px;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 87, 163, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
 
-        .team-card h3 {
-            color: #0057A3;
-            font-size: 24px;
-            margin-bottom: 8px;
-            font-weight: 600;
+        .team-card-top {
+            background: linear-gradient(135deg, #0057A3, #003d73);
+            padding: 28px 20px 20px;
         }
 
-        .team-role {
-            color: #888;
-            font-size: 15px;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-
-        .contact-item {
+        .team-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-            color: #555;
-            font-size: 15px;
+            justify-content: center;
+            margin: 0 auto 14px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
 
-        .contact-icon {
+        .team-avatar i {
+            font-size: 30px;
+            color: white;
+        }
+
+        .team-card-top h3 {
+            font-size: 16px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .team-card-top .designation {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 500;
+        }
+
+        .team-card-body {
+            padding: 20px;
+        }
+
+        .team-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .team-contact-item i {
+            font-size: 13px;
             color: #0057A3;
-            font-size: 18px;
-            width: 20px;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
         }
 
-        .contact-item a {
+        .team-contact-item a {
             color: #555;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
-        .contact-item a:hover {
+        .team-contact-item a:hover {
             color: #0057A3;
         }
 
-        /* CTA Section */
+        /* ============= CTA SECTION ============= */
         .cta-section {
-            background: linear-gradient(135deg, #0057A3 0%, #003D73 100%);
-            padding: 60px 20px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #0057A3, #003d73);
             text-align: center;
             color: white;
         }
 
         .cta-section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
+            font-size: 30px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .cta-section p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.95;
+            font-size: 15px;
+            margin-bottom: 24px;
+            opacity: 0.9;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 16px 40px;
-            font-size: 16px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            padding: 12px 32px;
+            font-size: 14px;
+            border-radius: 8px;
             text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
             display: inline-block;
         }
 
-        .btn-primary {
+        .btn-white {
             background: white;
             color: #0057A3;
         }
 
-        .btn-primary:hover {
+        .btn-white:hover {
             background: #f0f0f0;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-outline {
+        .btn-outline-white {
             background: transparent;
             color: white;
-            border: 2px solid white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
-        .btn-outline:hover {
+        .btn-outline-white:hover {
             background: white;
             color: #0057A3;
+            border-color: white;
             transform: translateY(-2px);
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .locations-grid {
+        /* ============= WHATSAPP FLOAT ============= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background-color: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ============= RESPONSIVE ============= */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 32px; }
+            .section-title { font-size: 28px; }
+
+            .quick-contact {
+                padding: 0 20px;
+                margin-top: -40px;
+            }
+
+            .quick-contact-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .map-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .map-sidebar {
+                max-height: 180px;
+                display: flex;
+                gap: 10px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding: 16px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .map-sidebar-title {
+                display: none;
+            }
+
+            .map-location-item {
+                min-width: 200px;
+                margin-bottom: 0;
+            }
+
+            .team-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
             .form-row {
                 grid-template-columns: 1fr;
             }
+
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 80%; max-width: 300px; text-align: center; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
+            .hero { height: 40vh; min-height: 250px; }
+            .hero-content h1 { font-size: 26px; }
+
+            .quick-contact,
+            .contact-section,
+            .map-section,
+            .team-section,
+            .cta-section {
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
-            .section-title {
-                font-size: 32px;
+            .contact-section,
+            .map-section,
+            .team-section,
+            .cta-section {
+                padding-top: 40px;
+                padding-bottom: 40px;
             }
 
-            .locations-grid,
+            .form-card {
+                padding: 24px 20px;
+            }
+
             .team-grid {
                 grid-template-columns: 1fr;
+                max-width: 400px;
             }
 
-            .form-container {
-                padding: 30px 20px;
+            #leafletMap {
+                height: 320px;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .map-container iframe {
-                height: 350px;
-            }
+            .section-title { font-size: 24px; }
         }
-        /* Floating WhatsApp Button */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    background-color: #25D366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.whatsapp-float img {
-    width: 35px;
-    height: 35px;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
     </style>
 </head>
 <body>
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
+
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Contact Us</h1>
-    </section>
-
-    <!-- Locations Section -->
-    <section class="locations-section">
-        <h2 class="section-title">Our Locations</h2>
-        <div class="locations-grid">
-            <div class="location-card">
-                <h3><span class="location-icon">📍</span> Head Office & Manufacturing Unit I</h3>
-                <p>No. 10-A, 2nd Phase, Peenya Industrial Area, Bengaluru - 560058</p>
-            </div>
-            <div class="location-card">
-                <h3><span class="location-icon">📍</span> Manufacturing Unit II</h3>
-                <p>Sy No. 42/5, Katha No. 173, Kaneshumari No. 117/53, Arasinakunte Village, Kasaba Hobli, Nelamangala Taluk, Bangalore Rural Dist. - 562123</p>
-            </div>
-            <div class="location-card">
-                <h3><span class="location-icon">📍</span> Manufacturing Unit III</h3>
-                <p>Plot # 309, KIADB Industrial Area, Vasanth Narasapura, Tumkur - 572 728</p>
-            </div>
-            <div class="location-card">
-                <h3><span class="location-icon">📍</span> Manufacturing Unit IV</h3>
-                <p>SY NO.105/1, 105/2 & 108, Bydrahalli, Thyamagondlu-2 Hobli, Nelamangala, Bangalore Rural -562123</p>
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> &nbsp;/&nbsp; <span>Contact</span>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Quick Contact Bar -->
+    <div class="quick-contact">
+        <div class="quick-contact-grid">
+            <div class="quick-card">
+                <div class="quick-card-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="quick-card-text">
+                    <h4>Call Us</h4>
+                    <p><a href="tel:+919108028394532">+(91)-(80)-2839 4532</a></p>
+                </div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-card-icon"><i class="fas fa-envelope"></i></div>
+                <div class="quick-card-text">
+                    <h4>Email Us</h4>
+                    <p><a href="mailto:srg@scahe.co.in">srg@scahe.co.in</a></p>
+                </div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="quick-card-text">
+                    <h4>Head Office</h4>
+                    <p>Peenya Industrial Area, Bengaluru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form + Info Section -->
+    <section class="contact-section">
+        <div class="section-header">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="section-title">Send Us a Message</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="contact-wrapper">
+            <!-- Form -->
+            <div class="form-card">
+                <h3>Enquiry Form</h3>
+                <p class="form-desc">Fill in the details below and we'll get back to you shortly.</p>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your company">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="Product Inquiry">Product Inquiry</option>
+                            <option value="Service Request">Service Request</option>
+                            <option value="Spare Parts">Spare Parts</option>
+                            <option value="Quote Request">Quote Request</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your requirements..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+
+            <!-- Info Side -->
+            <div class="info-side">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-building"></i>
+                        <h4>Head Office</h4>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="info-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>No. 10-A, 2nd Phase, Peenya Industrial Area, Bengaluru - 560058</span>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:srg@scahe.co.in">srg@scahe.co.in</a>
+                        </div>
+                        <div class="office-hours-badge">
+                            <i class="fas fa-clock" style="font-size:10px"></i> Mon - Sat: 9:00 AM - 6:00 PM
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-industry"></i>
+                        <h4>Manufacturing Facilities</h4>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="info-row">
+                            <i class="fas fa-map-pin"></i>
+                            <span>Unit II - Arasinakunte Village, Nelamangala - 562123</span>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-map-pin"></i>
+                            <span>Unit III - KIADB Industrial Area, Vasanth Narasapura, Tumkur - 572728</span>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-map-pin"></i>
+                            <span>Unit IV - Bydrahalli, Nelamangala - 562123</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <i class="fas fa-headset"></i>
+                        <h4>Quick Connect</h4>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="info-row">
+                            <i class="fas fa-wrench"></i>
+                            <a href="mailto:service@scahe.co.in">service@scahe.co.in</a>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-globe"></i>
+                            <span>www.scahe.co.in</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section (Dark Themed) -->
     <section class="map-section">
-        <h2 class="section-title">Find Us on Map</h2>
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.2855668430373!2d77.51847931482212!3d13.028851490832956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d8f49e55555%3A0x1234567890abcdef!2sPeenya%20Industrial%20Area%2C%20Bengaluru%2C%20Karnataka%20560058!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <div class="section-header">
+            <span class="section-label">Our Presence</span>
+            <h2 class="section-title">Find Our Facilities</h2>
+            <div class="title-line"></div>
         </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section class="contact-form-section">
-        <h2 class="section-title">Send Us a Message</h2>
-        <div class="form-container">
-            <form id="contactForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+        <div class="map-wrapper">
+            <div class="map-sidebar">
+                <div class="map-sidebar-title">All Locations</div>
+                <div class="map-location-item active" data-index="0">
+                    <span class="loc-badge hq">Head Office</span>
+                    <div class="loc-name">Head Office & Unit I</div>
+                    <div class="loc-address">Peenya Industrial Area, Bengaluru - 560058</div>
                 </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company Name</label>
-                        <input type="text" id="company" name="company">
-                    </div>
+                <div class="map-location-item" data-index="1">
+                    <span class="loc-badge unit">Unit II</span>
+                    <div class="loc-name">Manufacturing Unit II</div>
+                    <div class="loc-address">Arasinakunte, Nelamangala - 562123</div>
                 </div>
-
-                <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <select id="subject" name="subject" required>
-                        <option value="">Select a subject</option>
-                        <option value="Product Inquiry">Product Inquiry</option>
-                        <option value="Service Request">Service Request</option>
-                        <option value="Spare Parts">Spare Parts</option>
-                        <option value="Quote Request">Quote Request</option>
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Other">Other</option>
-                    </select>
+                <div class="map-location-item" data-index="2">
+                    <span class="loc-badge unit">Unit III</span>
+                    <div class="loc-name">Manufacturing Unit III</div>
+                    <div class="loc-address">Vasanth Narasapura, Tumkur - 572728</div>
                 </div>
-
-                <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required></textarea>
+                <div class="map-location-item" data-index="3">
+                    <span class="loc-badge unit">Unit IV</span>
+                    <div class="loc-name">Manufacturing Unit IV</div>
+                    <div class="loc-address">Bydrahalli, Nelamangala - 562123</div>
                 </div>
-
-                <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-                
-                <div id="formMessage" class="form-message"></div>
-            </form>
+            </div>
+            <div id="leafletMap"></div>
         </div>
     </section>
 
     <!-- Team Section -->
     <section class="team-section">
-        <h2 class="section-title">Our Team</h2>
+        <div class="section-header">
+            <span class="section-label">Key Contacts</span>
+            <h2 class="section-title">Our Team</h2>
+            <div class="title-line"></div>
+        </div>
         <div class="team-grid">
             <div class="team-card">
-                <h3>S Rajagopal</h3>
-                <p class="team-role">Managing Director</p>
-                <div class="contact-item">
-                    <span class="contact-icon">📞</span>
-                    <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
+                <div class="team-card-top">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>S Rajagopal</h3>
+                    <p class="designation">Managing Director</p>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📱</span>
-                    <a href="tel:+919342511723">+(91)-93425 11723</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">✉️</span>
-                    <a href="mailto:srg@scahe.co.in">srg@scahe.co.in</a>
-                </div>
-            </div>
-
-            <div class="team-card">
-                <h3>S. Jayachandran</h3>
-                <p class="team-role">Director & Advisor</p>
-                <div class="contact-item">
-                    <span class="contact-icon">📞</span>
-                    <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📱</span>
-                    <a href="tel:+919845133417">+(91)-98451 33417</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">✉️</span>
-                    <a href="mailto:jc@scahe.co.in">jc@scahe.co.in</a>
+                <div class="team-card-body">
+                    <div class="team-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
+                    </div>
+                    <div class="team-contact-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <a href="tel:+919342511723">+(91)-93425 11723</a>
+                    </div>
+                    <div class="team-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:srg@scahe.co.in">srg@scahe.co.in</a>
+                    </div>
                 </div>
             </div>
 
             <div class="team-card">
-                <h3>K N Siddalinga Prasad</h3>
-                <p class="team-role">Asst. vice president Operations</p>
-                <div class="contact-item">
-                    <span class="contact-icon">📞</span>
-                    <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
+                <div class="team-card-top">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>S. Jayachandran</h3>
+                    <p class="designation">Director & Advisor</p>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📱</span>
-                    <a href="tel:+919341094310">+(91)-93410 94310</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">✉️</span>
-                    <a href="mailto:service@scahe.co.in">service@scahe.co.in</a>
+                <div class="team-card-body">
+                    <div class="team-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
+                    </div>
+                    <div class="team-contact-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <a href="tel:+919845133417">+(91)-98451 33417</a>
+                    </div>
+                    <div class="team-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:jc@scahe.co.in">jc@scahe.co.in</a>
+                    </div>
                 </div>
             </div>
 
             <div class="team-card">
-                <h3>Jayasimman R</h3>
-                <p class="team-role">Director</p>
-                <div class="contact-item">
-                    <span class="contact-icon">📞</span>
-                    <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
+                <div class="team-card-top">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>K N Siddalinga Prasad</h3>
+                    <p class="designation">AVP Operations</p>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📱</span>
-                    <a href="tel:+917829977902">+(91)-78299 77902</a>
+                <div class="team-card-body">
+                    <div class="team-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
+                    </div>
+                    <div class="team-contact-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <a href="tel:+919341094310">+(91)-93410 94310</a>
+                    </div>
+                    <div class="team-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:service@scahe.co.in">service@scahe.co.in</a>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-icon">✉️</span>
-                    <a href="mailto:jay@scahe.co.in">jay@scahe.co.in</a>
+            </div>
+
+            <div class="team-card">
+                <div class="team-card-top">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>Jayasimman R</h3>
+                    <p class="designation">Director</p>
+                </div>
+                <div class="team-card-body">
+                    <div class="team-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+919108028394532">+(91)-(80)-2839 4532</a>
+                    </div>
+                    <div class="team-contact-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <a href="tel:+917829977902">+(91)-78299 77902</a>
+                    </div>
+                    <div class="team-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:jay@scahe.co.in">jay@scahe.co.in</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -615,15 +1110,15 @@
         <h2>Ready to Get Started?</h2>
         <p>Contact us today for all your heavy equipment needs</p>
         <div class="cta-buttons">
-            <a href="mailto:srg@scahe.co.in" class="btn btn-primary">Send Email</a>
-            <a href="tel:+919108028394532" class="btn btn-outline">Call Us Now</a>
+            <a href="mailto:srg@scahe.co.in" class="btn btn-white">Send Email</a>
+            <a href="tel:+919108028394532" class="btn btn-outline-white">Call Us Now</a>
         </div>
     </section>
-    <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
@@ -650,6 +1145,92 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             })
             .catch(error => console.error('Error loading footer:', error));
+
+        // Initialize Leaflet Map with all 4 locations
+        (function() {
+            var locations = [
+                {
+                    name: 'Head Office & Manufacturing Unit I',
+                    address: 'No. 10-A, 2nd Phase, Peenya Industrial Area, Bengaluru - 560058',
+                    lat: 13.0288,
+                    lng: 77.5185,
+                    type: 'hq'
+                },
+                {
+                    name: 'Manufacturing Unit II',
+                    address: 'Arasinakunte Village, Kasaba Hobli, Nelamangala Taluk - 562123',
+                    lat: 13.0950,
+                    lng: 77.3850,
+                    type: 'unit'
+                },
+                {
+                    name: 'Manufacturing Unit III',
+                    address: 'Plot #309, KIADB Industrial Area, Vasanth Narasapura, Tumkur - 572728',
+                    lat: 13.2900,
+                    lng: 77.1300,
+                    type: 'unit'
+                },
+                {
+                    name: 'Manufacturing Unit IV',
+                    address: 'SY NO.105/1, 105/2 & 108, Bydrahalli, Nelamangala - 562123',
+                    lat: 13.1050,
+                    lng: 77.3500,
+                    type: 'unit'
+                }
+            ];
+
+            var map = L.map('leafletMap', {
+                scrollWheelZoom: false
+            }).setView([13.13, 77.35], 10);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors',
+                maxZoom: 18
+            }).addTo(map);
+
+            var markers = [];
+
+            var blueIcon = L.divIcon({
+                className: 'custom-marker',
+                html: '<div style="background:#0057A3;width:14px;height:14px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.3);"></div>',
+                iconSize: [20, 20],
+                iconAnchor: [10, 10]
+            });
+
+            var greenIcon = L.divIcon({
+                className: 'custom-marker',
+                html: '<div style="background:#00c853;width:16px;height:16px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.3);"></div>',
+                iconSize: [22, 22],
+                iconAnchor: [11, 11]
+            });
+
+            locations.forEach(function(loc, i) {
+                var icon = loc.type === 'hq' ? greenIcon : blueIcon;
+                var marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
+                marker.bindPopup(
+                    '<div class="popup-content"><h4>' + loc.name + '</h4><p>' + loc.address + '</p></div>',
+                    { className: 'custom-popup', maxWidth: 260 }
+                );
+                markers.push(marker);
+            });
+
+            // Fit map to show all markers
+            var group = L.featureGroup(markers);
+            map.fitBounds(group.getBounds().pad(0.15));
+
+            // Sidebar click handlers
+            var sidebarItems = document.querySelectorAll('.map-location-item');
+            sidebarItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    var idx = parseInt(this.getAttribute('data-index'));
+                    sidebarItems.forEach(function(el) { el.classList.remove('active'); });
+                    this.classList.add('active');
+                    map.setView([locations[idx].lat, locations[idx].lng], 14, { animate: true });
+                    markers[idx].openPopup();
+                });
+            });
+        })();
+
         // Initialize EmailJS
         (function() {
             emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
@@ -658,36 +1239,28 @@
         // Form submission handler
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const formMessage = document.getElementById('formMessage');
-            
-            // Disable button and show loading
+
+            var submitBtn = document.getElementById('submitBtn');
+            var formMessage = document.getElementById('formMessage');
+
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
             formMessage.style.display = 'none';
-            
-            // Send email using EmailJS
+
             emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
                 .then(function() {
-                    // Success
                     formMessage.className = 'form-message success';
                     formMessage.textContent = 'Thank you! Your message has been sent successfully.';
                     formMessage.style.display = 'block';
                     document.getElementById('contactForm').reset();
-                    
-                    // Re-enable button
                     submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
+                    submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
                 }, function(error) {
-                    // Error
                     formMessage.className = 'form-message error';
                     formMessage.textContent = 'Oops! Something went wrong. Please try again.';
                     formMessage.style.display = 'block';
-                    
-                    // Re-enable button
                     submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
+                    submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
                     console.error('EmailJS error:', error);
                 });
         });
