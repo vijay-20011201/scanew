@@ -225,6 +225,33 @@
             border-color: rgba(255, 255, 255, 0.6);
             transform: translateY(-3px);
         }
+        .hero-nav {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.hero-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.hero-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-dots .dot.active {
+    background: #ffffff;
+    transform: scale(1.3);
+}
+
 
         /* Hero bottom navigation */
         .hero-nav {
@@ -735,8 +762,8 @@
             max-height: 40px;
             max-width: 140px;
             object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.7;
+            filter: none;
+            opacity: 1;
             transition: all 0.3s ease;
         }
 
@@ -960,8 +987,8 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         
-        <!-- Slide 2 -->
-        <div class="hero-slide">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
             <img src="images/SCA Dec 2025 (12).JPG" alt="SCA Electric ReachStacker">
             <div class="hero-content">
                 <div class="hero-text-wrapper">
@@ -977,7 +1004,7 @@
                 </div>
             </div>
         </div>
-        <!-- Slide 5 -->
+        <!-- Slide 2 -->
         <div class="hero-slide">
             <img src="images/FORKLIFT/IMG_20260206_140713.jpg.jpeg" alt="SCA Diesel ReachStacker">
             <div class="hero-content">
@@ -995,7 +1022,7 @@
             </div>
         </div>
 
-        <!-- Slide 6 -->
+        <!-- Slide 3 -->
         <div class="hero-slide">
             <img src="images/emptyreachstacker/SCA Dec 2025 (28).JPG" alt="SCA Equipment Range">
             <div class="hero-content">
@@ -1013,9 +1040,9 @@
             </div>
         </div>
 
-        <!-- Slide 3 -->
+        <!-- Slide 4 -->
         <div class="hero-slide">
-            <img src="images/SCA Dec 2025 (19).JPG" alt="SCA Empty Container Handler">
+            <img src="images/EMPTYCONTAINERHANDLER/ECT08-5H/WhatsApp Image 2025-05-31 at 12.11.54 PM.jpeg" alt="SCA Empty Container Handler">
             <div class="hero-content">
                 <div class="hero-text-wrapper">
                     <div class="hero-text">
@@ -1030,8 +1057,8 @@
                 </div>
             </div>
         </div>
-        <!-- Slide 1 -->
-        <div class="hero-slide active">
+        <!-- Slide 5 -->
+        <div class="hero-slide">
             <img src="images/FORKLIFT/LT-35/Yellow Crane 1_1.jpg" alt="SCA Forklift">
             <div class="hero-content">
                 <div class="hero-text-wrapper">
@@ -1049,7 +1076,7 @@
         </div>
 
 
-        <!-- Slide 4 -->
+        <!-- Slide 6 -->
         <div class="hero-slide">
             <img src="images/COILHANDLER/PC-37/yellow crane 4_14.jpg" alt="SCA Coil Handler">
             <div class="hero-content">
@@ -1084,7 +1111,7 @@
                         <img src="images/emptyreachstacker/SCA Dec 2025 (28).JPG" alt="Advance ReachStacker">
                     </div>
                     <div class="hero-card-slide">
-                        <img src="images/SCA Dec 2025 (19).JPG" alt="Reachstackers Handler">
+                        <img src="images/EMPTYCONTAINERHANDLER/ECT08-5H/WhatsApp Image 2025-05-31 at 12.11.54 PM.jpeg" alt="Reachstackers Handler">
                     </div>
                     <div class="hero-card-slide active">
                         <img src="images/FORKLIFT/LT-35/Yellow Crane 1_1.jpg" alt="Forklift Range">
@@ -1097,7 +1124,7 @@
                     
                 </div>
                 <div class="hero-card-info">
-                    <div class="hero-card-title" id="cardTitle">Forklift Range 10–50 Tons</div>
+                    <div class="hero-card-title" id="cardTitle">electricreachstacker</div>
                     <div class="hero-card-subtitle" id="cardSubtitle">SCA Heavy Equipment</div>
                 </div>
                 <div class="hero-card-dots" id="cardDots">
@@ -1111,13 +1138,12 @@
             </div>
         </div>
 
-        <!-- Bottom Navigation: Counter + Progress Bars -->
-        <div class="hero-nav">
-            <div class="hero-counter">
-                <span class="current-num" id="slideNum">1</span>&nbsp;/&nbsp;<span>6</span>
-            </div>
-            <div class="hero-progress-wrap" id="heroProgress"></div>
-        </div>
+        <!-- Bottom Navigation: Dots -->
+<div class="hero-nav">
+    <div class="hero-dots" id="heroDots"></div>
+</div>
+
+
 
         <!-- Scroll Indicator -->
         <div class="hero-scroll">
@@ -1299,102 +1325,120 @@
             })
             .catch(error => console.error('Error loading footer:', error));
 
-        // Hero Carousel with Progress Bars + Card Sync
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.hero-slide');
-        const totalSlides = slides.length;
-        const slideNumEl = document.getElementById('slideNum');
-        const progressWrap = document.getElementById('heroProgress');
-        let heroTimer;
+    
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const totalSlides = slides.length;
+const dotsWrap = document.getElementById('heroDots');
+let heroTimer = null;
 
-        // Card elements
-        const cardSlides = document.querySelectorAll('.hero-card-slide');
-        const cardDots = document.querySelectorAll('.hero-card-dot');
-        const cardTitle = document.getElementById('cardTitle');
-        const cardSubtitle = document.getElementById('cardSubtitle');
-        const cardTitles = [
-            'Forklift Range 10–50 Tons',
-            'Electric ReachStacker',
-            'Reachstackers Handler',
-            'Coil Handler',
-            'Diesel ReachStacker',
-            'Advance ReachStacker'
-        ];
-        const cardSubtitles = [
-            'SCA Heavy Equipment',
-            'Zero Emission Technology',
-            'Container Solutions',
-            'Specialized Handling',
-            'Heavy Lifting Power',
-            'High Power Lifting'
-        ];
+// Card elements
+const cardSlides = document.querySelectorAll('.hero-card-slide');
+const cardDots = document.querySelectorAll('.hero-card-dot');
+const cardTitle = document.getElementById('cardTitle');
+const cardSubtitle = document.getElementById('cardSubtitle');
 
-        // Build progress bars dynamically
-        for (let i = 0; i < totalSlides; i++) {
-            const bar = document.createElement('div');
-            bar.className = 'hero-progress-bar' + (i === 0 ? ' active' : '');
-            bar.innerHTML = '<div class="hero-progress-fill"></div>';
-            bar.addEventListener('click', function() { goToSlide(i); });
-            progressWrap.appendChild(bar);
-        }
-        const bars = progressWrap.querySelectorAll('.hero-progress-bar');
+const cardTitles = [
+    'Electric ReachStacker',
+    'Diesel ReachStacker',
+    'Advance ReachStacker',
+    'Empty Container Handler',
+    'Forklift Range 10–50 Tons',
+    'Coil Handler'
+];
 
-        // Card dot click handlers
-        cardDots.forEach(function(dot, i) {
-            dot.addEventListener('click', function() { goToSlide(i); });
-        });
+const cardSubtitles = [
+    'SCA Heavy Equipment',
+    'Zero Emission Technology',
+    'Container Solutions',
+    'Specialized Handling',
+    'Heavy Lifting Power',
+    'High Power Lifting'
+];
 
-        function showSlide(index) {
-            slides.forEach(function(s) { s.classList.remove('active'); });
-            bars.forEach(function(b) {
-                b.classList.remove('active');
-                var fill = b.querySelector('.hero-progress-fill');
-                fill.style.animation = 'none';
-                fill.offsetHeight;
-                fill.style.animation = '';
+
+// ===== BUILD HERO DOTS =====
+dotsWrap.innerHTML = ''; // IMPORTANT: clear old dots
+
+for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsWrap.appendChild(dot);
+}
+
+const dots = document.querySelectorAll('.hero-dots .dot');
+
+// ===== CARD DOT CLICK =====
+cardDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goToSlide(i));
+});
+
+// ===== SHOW SLIDE =====
+function showSlide(index) {
+    // Hero slides
+    slides.forEach(s => s.classList.remove('active'));
+    slides[index].classList.add('active');
+
+    // Hero dots
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+
+    // Card slides
+    cardSlides.forEach(s => s.classList.remove('active'));
+    cardDots.forEach(d => d.classList.remove('active'));
+
+    cardSlides[index].classList.add('active');
+    cardDots[index].classList.add('active');
+
+    // Card text
+    cardTitle.textContent = cardTitles[index];
+    cardSubtitle.textContent = cardSubtitles[index];
+}
+
+// ===== NEXT SLIDE =====
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+// ===== GO TO SLIDE =====
+function goToSlide(index) {
+    currentSlide = index;
+    showSlide(currentSlide);
+    restartTimer();
+}
+
+// ===== TIMER CONTROL =====
+function startTimer() {
+    heroTimer = setInterval(nextSlide, 5000);
+}
+
+function restartTimer() {
+    clearInterval(heroTimer);
+    startTimer();
+}
+
+// ===== START =====
+showSlide(0);
+startTimer();
+
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-
-            slides[index].classList.add('active');
-            bars[index].classList.add('active');
-            slideNumEl.textContent = String(index + 1).padStart(2, '0');
-
-            // Sync card
-            cardSlides.forEach(function(s) { s.classList.remove('active'); });
-            cardDots.forEach(function(d) { d.classList.remove('active'); });
-            cardSlides[index].classList.add('active');
-            cardDots[index].classList.add('active');
-            cardTitle.textContent = cardTitles[index];
-            cardSubtitle.textContent = cardSubtitles[index];
         }
+    });
+});
+</script>
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            showSlide(currentSlide);
-            clearInterval(heroTimer);
-            heroTimer = setInterval(nextSlide, 5000);
-        }
-
-        // Auto-advance slides every 5 seconds
-        heroTimer = setInterval(nextSlide, 5000);
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
