@@ -77,6 +77,147 @@
         .cta-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,87,163,0.5); }
         .cta-btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.3); }
         .cta-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); transform: translateY(-3px); }
+        /* ============= TABS SECTION ============= */
+        .tabs-section {
+            padding: 80px 60px;
+            background: white;
+        }
+
+        .tabs-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            background: #f1f5f9;
+            padding: 5px;
+            border-radius: 14px;
+            margin-bottom: 28px;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 14px 24px;
+            background: transparent;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-button:hover { color: #0057A3; }
+
+        .tab-button.active {
+            background: white;
+            color: #0057A3;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 36px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            animation: fadeIn 0.4s;
+        }
+
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content h3 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .tab-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #0057A3, #60a5fa);
+            border-radius: 2px;
+        }
+
+        .tab-content p {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+
+        /* Spec Table */
+        .spec-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .spec-table th {
+            background: linear-gradient(135deg, #0a1929, #1e3a5f);
+            color: white;
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .spec-table tr {
+            transition: background 0.2s;
+        }
+
+        .spec-table tbody tr:hover { background: #f0f9ff; }
+
+        .spec-table td {
+            padding: 13px 20px;
+            font-size: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .spec-table td:first-child {
+            font-weight: 600;
+            color: #0f172a;
+            width: 40%;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .spec-table td:first-child::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 55%;
+            background: #0057A3;
+            border-radius: 2px;
+        }
+
+        .spec-table td:last-child { color: #475569; }
+
+        .spec-table tr:nth-child(even) { background: #fafbfc; }
+        .spec-table tr:nth-child(even):hover { background: #f0f9ff; }
 
         .gallery-section { padding: 80px 60px; background: #f8fafc; }
         .gallery-container { max-width: 1300px; margin: 0 auto; }
@@ -228,14 +369,217 @@
             </div>
         </div>
     </section>
+    <!-- Tabs Section -->
+    <section class="tabs-section" id="specifications">
+        <div class="tabs-container">
+            <div class="section-header">
+                <div class="label">Product Details</div>
+                <h2>Technical Information</h2>
+                <p>Complete specifications, overview, and design drawings</p>
+            </div>
+            <div class="tab-nav">
+                <button class="tab-button active" onclick="openTab(event, 'overview')">Overview</button>
+                <button class="tab-button" onclick="openTab(event, 'specs')">Specifications</button>
+                <button class="tab-button" onclick="openTab(event, 'design')">Design</button>
+            </div>
+
+            <div id="overview" class="tab-content active">
+    <h3>Product Overview</h3>
+    <p>
+        The PBT-110 aircraft towing tractor, with a maximum drawbar pull of up to 110 kN,
+        is designed to perform push and pull operations for narrow- and medium-body aircraft.
+    </p>
+    <p>
+        It is suitable for aircraft such as CRJ100 to 900ER, ATR 42/72, BAE 146, Embraer 135 to 190,
+        Saab 2000, Fokker 70/100, B717, B727, B737, B757, B767-200 to 300ER, DC9, MD80 to 95,
+        A318, A319, A320, A321, A300, A310, and other similar aircraft.
+    </p>
+    <p>
+        Its ergonomic design provides excellent agility and visibility, while SCA’s high standards
+        of build and component quality ensure the PBT-110 is a durable and reliable tractor
+        for demanding airport ground handling operations.
+    </p>
+</div>
+
+
+            <div id="specs" class="tab-content">
+    <h3>Technical Specifications</h3>
+
+    <table class="spec-table">
+        <!-- ENGINE -->
+        <tr>
+            <td>Make</td>
+            <td>Volvo Eicher</td>
+        </tr>
+        <tr>
+            <td>Model</td>
+            <td>E 694 CE V</td>
+        </tr>
+        <tr>
+            <td>Rated Power</td>
+            <td>134 kW / 180 HP</td>
+        </tr>
+        <tr>
+            <td>Engine Speed</td>
+            <td>2200 RPM</td>
+        </tr>
+        <tr>
+            <td>Peak Torque</td>
+            <td>670 Nm @ 1200–1400 RPM</td>
+        </tr>
+        <tr>
+            <td>No. of Cylinders / Displacement</td>
+            <td>6 Nos. / 5700 cc</td>
+        </tr>
+
+        <!-- TRANSMISSION -->
+        <tr>
+            <td>Transmission Make</td>
+            <td>ZF</td>
+        </tr>
+        <tr>
+            <td>Transmission Model</td>
+            <td>TT-2221</td>
+        </tr>
+        <tr>
+            <td>Transmission Type</td>
+            <td>Power Shift with Torque Converter</td>
+        </tr>
+        <tr>
+            <td>Transmission Speeds</td>
+            <td>4 Forward / 4 Reverse (2 Auto / 2 Manual)</td>
+        </tr>
+        <tr>
+            <td>Transmission Shifting</td>
+            <td>Electric</td>
+        </tr>
+
+        <!-- DRIVE AXLE -->
+        <tr>
+            <td>Drive Axle Make</td>
+            <td>TATA / MERITOR</td>
+        </tr>
+        <tr>
+            <td>Drive Axle Mounting</td>
+            <td>Rigid</td>
+        </tr>
+        <tr>
+            <td>Drive Axle Brakes</td>
+            <td>Pneumatically Actuated Drum Brakes</td>
+        </tr>
+
+        <!-- STEER AXLE -->
+        <tr>
+            <td>Steer Axle Make</td>
+            <td>SCA</td>
+        </tr>
+        <tr>
+            <td>Steer Axle Type</td>
+            <td>Reverse Elliot Type</td>
+        </tr>
+        <tr>
+            <td>Steer Axle Suspension</td>
+            <td>With Leaf Spring</td>
+        </tr>
+        <tr>
+            <td>Steer Axle Brake</td>
+            <td>Dry Type Drum Brake (Actuated by Service Brake Chamber)</td>
+        </tr>
+
+        <!-- STEERING -->
+        <tr>
+            <td>Steering Make</td>
+            <td>Danfoss</td>
+        </tr>
+        <tr>
+            <td>Steering Type</td>
+            <td>Hydrostatic</td>
+        </tr>
+        <tr>
+            <td>Steering Cylinder</td>
+            <td>Balanced, Double Ended</td>
+        </tr>
+
+        <!-- TYRES -->
+        <tr>
+            <td>Tyres (Front)</td>
+            <td>9.00 × 20 – 16 PR (2 Nos.)</td>
+        </tr>
+        <tr>
+            <td>Tyres (Rear)</td>
+            <td>9.00 × 20 – 16 PR (4 Nos.)</td>
+        </tr>
+
+        <!-- PERFORMANCE -->
+        <tr>
+            <td>Draw Bar Pull</td>
+            <td>150 kN</td>
+        </tr>
+        <tr>
+            <td>Maximum Speed</td>
+            <td>30 km/h</td>
+        </tr>
+        <tr>
+            <td>Turning Radius</td>
+            <td>5400 mm</td>
+        </tr>
+
+        <!-- ELECTRICAL -->
+        <tr>
+            <td>Electrical Voltage</td>
+            <td>12 V DC</td>
+        </tr>
+        <tr>
+            <td>Battery</td>
+            <td>1 No. × 150 Ah</td>
+        </tr>
+
+        <!-- TOW BRACKET -->
+        <tr>
+            <td>Tow Bracket</td>
+            <td>
+                Provided at Front and Rear, Single Level<br>
+                With 70 mm Dia Alloy Steel Pins (Manual)
+            </td>
+        </tr>
+
+        <!-- WEIGHTS -->
+        <tr>
+            <td>Gross Vehicle Weight (GVW)</td>
+            <td>16,200 Kgs</td>
+        </tr>
+        <tr>
+            <td>Front Axle Weight (FAW)</td>
+            <td>7,350 Kgs</td>
+        </tr>
+        <tr>
+            <td>Rear Axle Weight (RAW)</td>
+            <td>8,850 Kgs</td>
+        </tr>
+    </table>
+</div>
+
+
+            <div id="design" class="tab-content">
+                <h3>Design Features</h3>
+
+    <iframe 
+        src="gadiagram/PBT- 2WD TECHNICAL SPEC.pdf"
+        width="100%"
+        height="600px"
+        style="border: none;">
+    </iframe>
+            </div>
+        </div>
+    </section>
 
     <section class="cta-section">
         <div class="cta-container">
-            <h2>Need a Pushback Tractor?</h2>
-            <p>Contact our specialized equipment team for pricing and availability.</p>
+            <h2>Ready to Transform Your Operations?</h2>
+            <p>Download the complete product brochure or get a customized quote tailored to your specific requirements.</p>
             <div class="cta-buttons">
-                <a href="contact.html" class="cta-btn cta-btn-primary"><i class="fas fa-envelope"></i> Contact Us</a>
-                <a href="index.html" class="cta-btn cta-btn-outline"><i class="fas fa-home"></i> Back to Home</a>
+                <a href="gadiagram/PBT- 2WD TECHNICAL SPEC.pdf" class="cta-btn cta-btn-primary"><i class="fas fa-download"></i> Download Brochure</a>
+                <a href="contact.html" class="cta-btn cta-btn-outline"><i class="fas fa-file-alt"></i> Request Quote</a>
             </div>
         </div>
     </section>
@@ -283,7 +627,7 @@
         <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)"><i class="fas fa-chevron-right"></i></button>
     </div>
 
-    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919535005299" class="whatsapp-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
@@ -292,6 +636,13 @@
     <script>
         fetch('header.html').then(r=>r.text()).then(data=>{const ph=document.getElementById('header-placeholder');ph.innerHTML=data;ph.querySelectorAll('script').forEach(old=>{const s=document.createElement('script');s.textContent=old.textContent;old.parentNode.replaceChild(s,old);});});
         fetch('footer.html').then(r=>r.text()).then(data=>{document.getElementById('footer-placeholder').innerHTML=data;});
+         // Tabs
+        function openTab(evt, tabName) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
 
         var lbImages=[];var lbIndex=0;
         document.querySelectorAll('.gallery-item img').forEach(function(img){lbImages.push(img.src);});
